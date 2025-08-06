@@ -1,4 +1,3 @@
-/** @type {import('stylelint').Config} */
 module.exports = {
   defaultSeverity: 'warning',
   rules: {

@@ -1,6 +1,6 @@
 const path = require("path");
 const stylelint = require("stylelint")
-const config = require("../index.ts")
+const config = require("../index.js")
 
 test('validate default', async () => {
   const filePath = path.join(__dirname, "./fixture/index.css")

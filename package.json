@@ -5,12 +5,10 @@
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
     "@types/node": "^24.2.0",
     "cross-env": "^10.0.0",
     "jest": "^30.0.5",
     "lerna": "^8.2.3",
-    "ts-jest": "^29.4.1",
     "typescript": "^5.9.2"
   },
   "engines": {
