@@ -1,5 +1,5 @@
 {
-  "name": "hkx-eslint-config",
+  "name": "eslint-config-hkx",
   "version": "0.0.0",
   "description": "HKX 代码规范",
   "type": "module",

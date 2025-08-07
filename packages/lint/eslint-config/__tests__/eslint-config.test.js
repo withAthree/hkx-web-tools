@@ -24,3 +24,21 @@ test('validate eslint es6', async () => {
   expect(errorCount).toBe(1)
   expect(warningCount).toBe(1)
 })
+
+test('validate eslint best-practices', async () => {
+  const filePath = path.join(__dirname, './fixture/best-practices.js');
+  const configPath = path.join(__dirname, "../index.js");
+
+  const eslint = new ESLint({
+    overrideConfigFile: configPath,
+    fix: false
+  });
+
+  const config = await eslint.calculateConfigForFile(filePath);
+  expect(typeof config === 'object').toBe(true)
+  
+  const results = await eslint.lintFiles([filePath]);
+  const { errorCount, warningCount } = results[0]
+  expect(errorCount).toBe(1)
+  expect(warningCount).toBe(2)
+})

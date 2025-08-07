@@ -1,16 +1,16 @@
-import stylistic from '@stylistic/eslint-plugin'
+import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   {
     plugins: {
-      '@stylistic': stylistic
+      '@stylistic': stylistic,
     },
     rules: {
       // 该规则可以强制或禁止在箭头函数体周围使用大括号 fix
       'arrow-body-style': [
         'error',
         'as-needed',
-        { "requireReturnForObjectLiteral": false }
+        { requireReturnForObjectLiteral: false },
       ],
 
       // 子类的 constructor 中必须使用 super，非子类的 constructor 中不能使用 super
@@ -20,13 +20,13 @@ export default [
       'no-class-assign': 'error',
 
       // 禁止重新分配 const 变量
-      'no-const-assign': "error",
+      'no-const-assign': 'error',
 
       // 禁止类成员中出现重复的名称
-      'no-dupe-class-members': "error",
+      'no-dupe-class-members': 'error',
 
       // 不允许重复导入模块
-      'no-duplicate-imports': "error",
+      'no-duplicate-imports': 'error',
 
       // 禁止使用全局非构造函数的新运算符
       'no-new-native-nonconstructor': 'error',
@@ -41,42 +41,56 @@ export default [
       'no-useless-computed-key': 'error',
 
       // 不允许不必要的构造函数
-      'no-useless-constructor': "error",
+      'no-useless-constructor': 'error',
 
       // 不允许将导入、导出和解构赋值的变量重命名为相同的名称 fix
-      "no-useless-rename": ["error", {
-        ignoreDestructuring: false,
-        ignoreImport: false,
-        ignoreExport: false
-      }],
+      'no-useless-rename': [
+        'error',
+        {
+          ignoreDestructuring: false,
+          ignoreImport: false,
+          ignoreExport: false,
+        },
+      ],
 
       // 不允许使用 var 声明变量 fix
       'no-var': 'error',
 
       // 要求或禁止对象字面量中的方法和属性的简写语法 fix
-      'object-shorthand': ['error', 'always', { ignoreConstructors: false, avoidQuotes: true }],
+      'object-shorthand': [
+        'error',
+        'always',
+        { ignoreConstructors: false, avoidQuotes: true },
+      ],
 
       // 要求回调函数使用箭头函数 fix
-      'prefer-arrow-callback': ['error', { allowNamedFunctions: false, allowUnboundThis: true }],
+      'prefer-arrow-callback': [
+        'error',
+        { allowNamedFunctions: false, allowUnboundThis: true },
+      ],
 
       // 要求为声明后不再重新赋值的变量使用 const 声明 fix
-      'prefer-const': ['error', { destructuring: 'any', ignoreReadBeforeAssign: true }],
+      'prefer-const': [
+        'error',
+        { destructuring: 'any', ignoreReadBeforeAssign: true },
+      ],
 
       // 需要从数组和/或对象中进行解构 fix
-      'prefer-destructuring': ['warn',
+      'prefer-destructuring': [
+        'warn',
         {
           VariableDeclarator: {
             array: false,
-            object: true
+            object: true,
           },
           AssignmentExpression: {
             array: false,
-            object: false
+            object: false,
           },
         },
         {
           enforceForRenamedProperties: false,
-        }
+        },
       ],
 
       // 禁止使用 parseInt() 进行二、八、十六禁止转换 fix
@@ -95,13 +109,21 @@ export default [
       'require-yield': 'error',
 
       // import 排序 fix
-      'sort-imports': ['warn', {
-        ignoreCase: false,
-        ignoreDeclarationSort: false,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-        allowSeparatedGroups: false
-      }],
+      'sort-imports': [
+        'warn',
+        {
+          ignoreCase: false,
+          ignoreDeclarationSort: false,
+          ignoreMemberSort: false,
+          memberSyntaxSortOrder: [
+            'none',
+            'all',
+            'multiple',
+            'single',
+          ],
+          allowSeparatedGroups: false,
+        },
+      ],
 
       // 创建 Symbol 时必须传入参数
       'symbol-description': 'warn',
@@ -110,10 +132,16 @@ export default [
       '@stylistic/arrow-parens': ['warn', 'always'],
 
       // 该规则用于规范化箭头函数箭头（=>）前后的空格样式 fix
-      '@stylistic/arrow-spacing': ['error', { before: true, after: true }],
+      '@stylistic/arrow-spacing': [
+        'error',
+        { before: true, after: true },
+      ],
 
       // generator 函数的 * 号前面无空格，后面有一个空格 fix
-      '@stylistic/generator-star-spacing': ['error', { before: false, after: true }],
+      '@stylistic/generator-star-spacing': [
+        'error',
+        { before: false, after: true },
+      ],
 
       // 箭头函数（=>）在语法上与某些比较运算符（>、<、<= 和 >=）相似。该规则警告不要在可能被误认为比较运算符的地方使用箭头函数语法 fix
       '@stylistic/no-confusing-arrow': 'error',
@@ -126,6 +154,6 @@ export default [
 
       // 该规则强制在 yield* 表达式中的 * 周围添加空格 fix
       '@stylistic/yield-star-spacing': ['error', 'after'],
-    }
-  }
-]
+    },
+  },
+];
