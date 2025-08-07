@@ -11,14 +11,10 @@
   ],
   "author": "withAthree <huangkaixiang8462@163.com>",
   "license": "ISC",
-  "main": "lib/stylelint-config.js",
+  "main": "index.js",
   "directories": {
-    "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/withAthree/hkx-web-tools.git"

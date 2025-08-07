@@ -1,7 +1,26 @@
-'use strict';
+import { jest, test } from '@jest/globals';
+import path, { dirname } from 'node:path'
+import { ESLint } from 'eslint'
+import { fileURLToPath } from 'node:url';
 
-const eslintConfig = require('..');
-const assert = require('assert').strict;
+const __filename = fileURLToPath(import.meta.url); // 当前文件的绝对路径
+const __dirname = dirname(__filename);             // 当前文件所在的目录
 
-assert.strictEqual(eslintConfig(), 'Hello from eslintConfig');
-console.info('eslintConfig tests passed');
+
+test('validate eslint es6', async () => {
+  const filePath = path.join(__dirname, './fixture/es6.js');
+  const configPath = path.join(__dirname, "../index.js");
+
+  const eslint = new ESLint({
+    overrideConfigFile: configPath,
+    fix: false
+  });
+
+  const config = await eslint.calculateConfigForFile(filePath);
+  expect(typeof config === 'object').toBe(true)
+  
+  const results = await eslint.lintFiles([filePath]);
+  const { errorCount, warningCount } = results[0]
+  expect(errorCount).toBe(1)
+  expect(warningCount).toBe(1)
+})

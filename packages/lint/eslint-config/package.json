@@ -1,27 +1,40 @@
 {
-  "name": "eslint-config",
+  "name": "hkx-eslint-config",
   "version": "0.0.0",
-  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
-  "keywords": [],
+  "description": "HKX 代码规范",
+  "type": "module",
+  "keywords": [
+    "eslint",
+    "hkx",
+    "lint",
+    "withAthree"
+  ],
   "author": "withAthree <huangkaixiang8462@163.com>",
   "license": "ISC",
-  "main": "lib/eslint-config.js",
+  "main": "index.js",
   "directories": {
-    "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/withAthree/hkx-web-tools.git"
   },
   "scripts": {
-    "test": "node ./__tests__/eslint-config.test.js"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "bugs": {
     "url": "https://github.com/withAthree/hkx-web-tools/issues"
   },
-  "homepage": "https://github.com/withAthree/hkx-web-tools#readme"
+  "homepage": "https://github.com/withAthree/hkx-web-tools#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@eslint/json": "^0.13.1",
+    "@stylistic/eslint-plugin": "^5.2.2",
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0"
+  },
+  "peerDependencies": {
+    "eslint": "^9.32.0",
+    "@stylistic/eslint-plugin": "^5.2.2"
+  }
 }
