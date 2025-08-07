@@ -34,7 +34,7 @@
     "globals": "^16.3.0"
   },
   "peerDependencies": {
-    "eslint": "^9.32.0",
-    "@stylistic/eslint-plugin": "^5.2.2"
+    "@stylistic/eslint-plugin": "^5.2.2",
+    "eslint": "^9.32.0"
   }
 }
