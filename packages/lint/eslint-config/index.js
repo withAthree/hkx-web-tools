@@ -17,16 +17,12 @@ export default defineConfig([
       parser: babelParser,
       parserOptions: {
         requireConfigFile: false,
-        babelOptions: {
-          babelrc: false,
-          configFile: false,
-          ecmaVersion: 2020,
-          sourceType: 'module',
-          ecmaFeatures: {
-            globalReturn: false,
-            impliedStrict: true,
-            jsx: true,
-          },
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        ecmaFeatures: {
+          globalReturn: false,
+          impliedStrict: true,
+          jsx: true,
         },
       },
     }
