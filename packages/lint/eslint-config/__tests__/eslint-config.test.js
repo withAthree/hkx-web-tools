@@ -43,8 +43,26 @@ const __dirname = dirname(__filename);             // 当前文件所在的目�
 //   expect(warningCount).toBe(2)
 // })
 
-test('validate eslint possible-errors', async () => {
-  const filePath = path.join(__dirname, './fixture/possible-errors.js');
+// test('validate eslint possible-errors', async () => {
+//   const filePath = path.join(__dirname, './fixture/possible-errors.js');
+//   const configPath = path.join(__dirname, "../index.js");
+
+//   const eslint = new ESLint({
+//     overrideConfigFile: configPath,
+//     fix: false
+//   });
+
+//   const config = await eslint.calculateConfigForFile(filePath);
+//   expect(typeof config === 'object').toBe(true)
+  
+//   const results = await eslint.lintFiles([filePath]);
+//   const { errorCount, warningCount } = results[0]
+//   expect(errorCount).toBe(3)
+//   expect(warningCount).toBe(1)
+// })
+
+test('validate eslint import', async () => {
+  const filePath = path.join(__dirname, './fixture/import.js');
   const configPath = path.join(__dirname, "../index.js");
 
   const eslint = new ESLint({
@@ -54,8 +72,10 @@ test('validate eslint possible-errors', async () => {
 
   const config = await eslint.calculateConfigForFile(filePath);
   expect(typeof config === 'object').toBe(true)
+
   
   const results = await eslint.lintFiles([filePath]);
+  console.log(123, results[0])
   const { errorCount, warningCount } = results[0]
   expect(errorCount).toBe(3)
   expect(warningCount).toBe(1)

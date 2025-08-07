@@ -2,6 +2,7 @@ import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   {
+    name: 'possible errors config',
     plugins: {
       '@stylistic': stylistic,
     },

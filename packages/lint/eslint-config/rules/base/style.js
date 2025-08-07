@@ -2,6 +2,7 @@ import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   {
+    name: 'code style config',
     plugins: {
       '@stylistic': stylistic,
     },
