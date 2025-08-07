@@ -73,5 +73,6 @@ module.exports = {
     ],
     // 限制选择器中ID选择器的数量
     'selector-max-id': 0,
-  }
+  },
+  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
 }
