@@ -111,7 +111,7 @@ export default [
 
       // 禁止不必要的小括号 fix
       '@stylistic/no-extra-parens': [
-        'off',
+        'error',
         'all',
         {
           conditionalAssign: true,
