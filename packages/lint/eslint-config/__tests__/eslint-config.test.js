@@ -38,6 +38,7 @@ const __dirname = dirname(__filename);             // 当前文件所在的目�
 //   expect(typeof config === 'object').toBe(true)
   
 //   const results = await eslint.lintFiles([filePath]);
+//   console.log(123, results[0])
 //   const { errorCount, warningCount } = results[0]
 //   expect(errorCount).toBe(1)
 //   expect(warningCount).toBe(2)
@@ -61,9 +62,29 @@ const __dirname = dirname(__filename);             // 当前文件所在的目�
 //   expect(warningCount).toBe(1)
 // })
 
-test('validate eslint import', async () => {
-  const filePath = path.join(__dirname, './fixture/import.js');
-  const configPath = path.join(__dirname, "../index.js");
+// test('validate eslint import', async () => {
+//   const filePath = path.join(__dirname, './fixture/import.js');
+//   const configPath = path.join(__dirname, "../index.js");
+
+//   const eslint = new ESLint({
+//     overrideConfigFile: configPath,
+//     fix: false
+//   });
+
+//   const config = await eslint.calculateConfigForFile(filePath);
+//   expect(typeof config === 'object').toBe(true)
+
+  
+//   const results = await eslint.lintFiles([filePath]);
+//   console.log(123, results[0])
+//   const { errorCount, warningCount } = results[0]
+//   expect(errorCount).toBe(3)
+//   expect(warningCount).toBe(1)
+// })
+
+test('validate eslint vue js', async () => {
+  const filePath = path.join(__dirname, './fixture/vueJs.vue');
+  const configPath = path.join(__dirname, "./eslint.config.js");
 
   const eslint = new ESLint({
     overrideConfigFile: configPath,
@@ -75,7 +96,7 @@ test('validate eslint import', async () => {
 
   
   const results = await eslint.lintFiles([filePath]);
-  console.log(123, results[0])
+  console.log(456, results[0])
   const { errorCount, warningCount } = results[0]
   expect(errorCount).toBe(3)
   expect(warningCount).toBe(1)

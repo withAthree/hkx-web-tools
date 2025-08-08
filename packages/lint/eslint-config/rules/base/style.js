@@ -45,7 +45,7 @@ export default [
       '@stylistic/eol-last': ['warn', 'always'],
 
       // 函数名与调用它的括号间无空格 fix
-      '@stylistic/func-call-spacing': ['error', 'never'],
+      '@stylistic/function-call-spacing': ['error', 'never'],
 
       // 在函数的小括号内使用一致的换行风格 fix
       '@stylistic/function-paren-newline': ['error', 'consistent'],
@@ -127,7 +127,7 @@ export default [
         {
           position: 'above',
           ignorePattern: '',
-          applyDefaultPatterns: true,
+          applyDefaultIgnorePatterns: true,
         },
       ],
 
