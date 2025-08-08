@@ -7,7 +7,6 @@ import es6 from './rules/base/es6.js'
 import strict from './rules/base/strict.js'
 import importConfig from './rules/import.js'
 
-import babelParser from '@babel/eslint-parser';
 import vueParser from 'vue-eslint-parser';
 
 export default [
@@ -18,10 +17,6 @@ export default [
     languageOptions: {
       parser: vueParser,
       parserOptions: {
-        parser: babelParser,
-        requireConfigFile: false,
-        ecmaVersion: 2020,
-        sourceType: 'module',
         ecmaFeatures: {
           globalReturn: false,
           impliedStrict: true,
