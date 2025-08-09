@@ -2,7 +2,7 @@ import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   {
-    name: 'possible errors config',
+    name: 'rules/base/possible-errors',
     plugins: {
       '@stylistic': stylistic,
     },

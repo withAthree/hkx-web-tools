@@ -1,11 +1,35 @@
-import typescript from 'typescript-eslint';
+import tseslint from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   {
+    name: 'rules/typescript',
     plugins: {
-      '@typescript-eslint': typescript,
+      '@typescript-eslint': tseslint.plugin,
       '@stylistic': stylistic,
+    },
+    settings: {
+      'import/parsers': {
+        [tseslint.parser]: ['.ts', '.d.ts', '.tsx'],
+      },
+      // Use eslint-import-resolver-typescript
+      'import/resolver': {
+        typescript: {},
+      },
+      // Append 'ts' extensions to 'import/extensions' setting
+      'import/extensions': ['.js', '.ts', '.mjs'],
+    },
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: {
+          globalReturn: false,
+          jsx: true,
+        },
+        projectService: true,
+      },
     },
     rules: {
       /**
@@ -358,11 +382,6 @@ export default [
       '@typescript-eslint/only-throw-error': 'off',
 
       /**
-       * 【关闭】禁止使用类型别名
-       */
-      '@typescript-eslint/consistent-type-definitions': 'off',
-
-      /**
        * 【关闭】测试表达式中的布尔类型禁止与 true 或 false 直接比较
        */
       '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off',
@@ -572,6 +591,22 @@ export default [
        * 【推荐】定义函数时，优先使用参数的联合类型而不是函数的类型重载
        */
       '@typescript-eslint/unified-signatures': 'warn',
+    },
+  },
+  {
+    name: 'rules/typescript/override',
+    files: ['*.{ts,tsx}', '**/*.{ts,tsx}'],
+    rules: {
+      // Disable `no-undef` rule within TypeScript files because it incorrectly errors when exporting default interfaces
+      // https://github.com/iamturns/eslint-config-airbnb-typescript/issues/50
+      // This will be caught by TypeScript compiler if `strictNullChecks` (or `strict`) is enabled
+      'no-undef': 'off',
+
+      /* Using TypeScript makes it safe enough to disable the checks below */
+
+      // Disable ESLint-based module resolution check for improved monorepo support
+      // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
+      'import/no-unresolved': 'off',
     },
   },
 ];

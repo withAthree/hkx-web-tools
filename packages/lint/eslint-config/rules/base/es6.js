@@ -2,7 +2,7 @@ import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   {
-    name: 'es6 config',
+    name: 'rules/base/es6',
     plugins: {
       '@stylistic': stylistic,
     },
@@ -111,7 +111,7 @@ export default [
 
       // import 排序 fix
       'sort-imports': [
-        'warn',
+        'off',
         {
           ignoreCase: false,
           ignoreDeclarationSort: false,

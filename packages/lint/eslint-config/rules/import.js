@@ -2,7 +2,7 @@ import importPlugin from 'eslint-plugin-import';
 
 export default [
   {
-    name: 'import config',
+    name: 'rules/import',
     plugins: {
       import: importPlugin,
     },

@@ -6,9 +6,13 @@ import variables from './rules/base/variables.js'
 import es5 from './rules/es5.js'
 
 export default defineConfig([
+  ...bestPractices,
+  ...possibleErrors,
+  ...style,
+  ...variables,
+  ...es5,
   {
-    name: 'es5 index config',
-    files: ['**/*.js'],
-    extends: [bestPractices, possibleErrors, style, variables, es5]
+    name: 'eslint-config/es5',
+    files: ['*.js', '**/*.js'],
   }
 ]);

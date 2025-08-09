@@ -2,7 +2,7 @@ import globals from 'globals';
 
 export default [
   {
-    name: 'variables config',
+    name: 'rules/base/variables',
     languageOptions: {
       // 预设的环境，使用这些环境中的全局变量不会被 no-undef 报错
       globals: {

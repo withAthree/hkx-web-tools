@@ -2,7 +2,7 @@ import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   {
-    name: 'best practices config',
+    name: 'rules/base/best-practices',
     plugins: {
       '@stylistic': stylistic,
     },

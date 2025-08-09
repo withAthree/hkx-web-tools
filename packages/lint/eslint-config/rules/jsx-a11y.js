@@ -2,7 +2,7 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 export default [
   {
-    name: 'jsx-a11y',
+    name: 'rules/jsx-a11y',
     plugins: {
       'jsx-a11y': jsxA11y,
     },

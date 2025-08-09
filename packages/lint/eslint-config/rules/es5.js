@@ -2,7 +2,7 @@ import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   {
-    name: 'es5 config',
+    name: 'rules/es5',
     plugins: {
       '@stylistic': stylistic,
     },

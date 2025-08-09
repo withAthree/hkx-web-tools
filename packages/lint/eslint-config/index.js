@@ -7,10 +7,16 @@ import strict from './rules/base/strict.js'
 import importConfig from './rules/import.js'
 
 export default [
+  ...bestPractices,
+  ...possibleErrors,
+  ...style,
+  ...variables,
+  ...es6,
+  ...strict,
+  ...importConfig,
   {
-    name: 'index config',
-    files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
-    extends: [bestPractices, possibleErrors, style, variables, es6, strict, importConfig],
+    name: 'eslint-config/index',
+    files: ['*.{js,jsx}', '**/*.{js.jsx}'],
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {
