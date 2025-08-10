@@ -3,27 +3,9 @@ import parserVue from 'vue-eslint-parser';
 
 export default [
   {
-    name: 'rules/vue/setup',
-    plugins: {
-      vue: pluginVue,
-    },
-    languageOptions: {
-      sourceType: 'module'
-    }
-  },
-  {
     name: 'rules/vue/setup-for-vue',
     plugins: {
       vue: pluginVue,
-    },
-    languageOptions: {
-      sourceType: 'module',
-      parser: parserVue,
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
     },
     rules: {
       // 给 template 提供 eslint-disable 的能力，支持如下注释：

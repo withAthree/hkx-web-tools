@@ -8,29 +8,6 @@ export default [
       '@typescript-eslint': tseslint.plugin,
       '@stylistic': stylistic,
     },
-    settings: {
-      'import/parsers': {
-        [tseslint.parser]: ['.ts', '.d.ts', '.tsx'],
-      },
-      // Use eslint-import-resolver-typescript
-      'import/resolver': {
-        typescript: {},
-      },
-      // Append 'ts' extensions to 'import/extensions' setting
-      'import/extensions': ['.js', '.ts', '.mjs'],
-    },
-    languageOptions: {
-      parser: tseslint.parser,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: {
-          globalReturn: false,
-          jsx: true,
-        },
-        projectService: true,
-      },
-    },
     rules: {
       /**
        * 【强制】将重载的函数写在一起以增加代码可读性
