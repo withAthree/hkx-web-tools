@@ -166,15 +166,15 @@ export default [
         {
           props: true,
           ignorePropertyModificationsFor: [
-            'acc', // for reduce accumulators
-            'e', // for e.returnvalue
-            'ctx', // for Koa routing
-            'draft', // for immer
-            'req', // for Express requests
-            'request', // for Express requests
-            'res', // for Express responses
-            'response', // for Express responses
-            '$scope', // for Angular 1 scopes
+            'acc',
+            'e',
+            'ctx',
+            'draft',
+            'req',
+            'request',
+            'res',
+            'response',
+            '$scope',
           ],
         },
       ],

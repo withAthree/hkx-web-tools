@@ -1,7 +1,9 @@
-import typescript from '../rules/typescript.js';
-import index from '../index.js';
+import typescript from '../rules/typescript';
+import index from '../index';
 
 import tseslint from 'typescript-eslint';
+
+import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
 
 export default [
   ...index,
@@ -11,7 +13,7 @@ export default [
     files: ['*.{ts,tsx}', '**/*.{ts,tsx}'],
     settings: {
       'import/parsers': {
-        [tseslint.parser]: ['.ts', '.d.ts', '.tsx'],
+        [tseslint.parser as any]: ['.ts', '.d.ts', '.tsx'],
       },
       // Use eslint-import-resolver-typescript
       'import/resolver': {
@@ -35,4 +37,4 @@ export default [
       },
     },
   },
-];
+] as ConfigWithExtendsArray;

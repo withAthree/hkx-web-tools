@@ -1,5 +1,5 @@
 import { defineConfig } from 'eslint/config';
 
-import tseslintConfig from './packages/lint/eslint-config/typescript/index.js'
+import tseslintConfig from './packages/lint/eslint-config/typescript/index';
 
-export default defineConfig(tseslintConfig)
+export default defineConfig(tseslintConfig);

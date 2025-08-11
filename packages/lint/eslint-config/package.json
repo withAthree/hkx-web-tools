@@ -20,7 +20,7 @@
     "url": "git+https://github.com/withAthree/hkx-web-tools.git"
   },
   "scripts": {
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "npx vitest"
   },
   "bugs": {
     "url": "https://github.com/withAthree/hkx-web-tools/issues"

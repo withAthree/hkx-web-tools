@@ -1,8 +1,10 @@
 import tseslint from 'typescript-eslint';
 
-import jsIndex from '../index.js';
-import tsRules from '../rules/typescript.js';
-import vueRules from '../rules/vue.js';
+import jsIndex from '../index';
+import tsRules from '../rules/typescript';
+import vueRules from '../rules/vue';
+
+import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
 
 export default [
   {
@@ -24,4 +26,4 @@ export default [
       },
     },
   },
-];
+] as ConfigWithExtendsArray;

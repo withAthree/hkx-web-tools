@@ -1,5 +1,7 @@
-import vueRules from './rules/vue.js';
-import index from './index.js';
+import vueRules from './rules/vue';
+import index from './index';
+
+import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
 
 export default [
   {
@@ -18,4 +20,4 @@ export default [
       },
     },
   },
-];
+] as ConfigWithExtendsArray;

@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "jsx": "preserve",
+        "target": "ESNext",
+        "baseUrl": ".",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "declaration": false,
+        "noEmit": true,
+        "esModuleInterop": true
+    },
+    "include": ["**/*.ts"]
+}
