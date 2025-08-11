@@ -1,5 +1,5 @@
 {
-  "name": "hkx-stylelint-config",
+  "name": "@hkx/stylelint-config",
   "version": "0.0.0",
   "description": "HKX CSS 规范",
   "keywords": [
@@ -27,9 +27,9 @@
   },
   "homepage": "https://github.com/withAthree/hkx-web-tools#readme",
   "devDependencies": {
-    "stylelint": "^16.23.0"
+    "stylelint": "catalog:peer"
   },
   "peerDependencies": {
-    "stylelint": ">=16.23.0"
+    "stylelint": "catalog:peer"
   }
 }

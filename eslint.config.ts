@@ -1,5 +1,10 @@
 import { defineConfig } from 'eslint/config';
 
-import tseslintConfig from './packages/lint/eslint-config/typescript/index';
+import tseslintConfig from '@hkx/eslint-config/typescript/vue';
 
-export default defineConfig(tseslintConfig);
+export default defineConfig([
+  ...tseslintConfig,
+  {
+    ignores: ['**/node_modules/*', '**/dist/*', '**/__tests__/fixture/*'],
+  },
+]);

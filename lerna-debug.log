@@ -2,7 +2,7 @@
 0 silly argv   _: [ 'create' ],
 0 silly argv   lernaVersion: '8.2.3',
 0 silly argv   '$0': 'C:\\Users\\huang\\AppData\\Local\\pnpm\\global\\5\\.pnpm\\lerna@8.2.3_encoding@0.1.13\\node_modules\\lerna\\dist\\cli.js',
-0 silly argv   name: 'eslint-config'
+0 silly argv   name: 'lint-tool'
 0 silly argv }
 1 notice cli v8.2.3
 2 verbose packageConfigs Package manager "pnpm" detected. Resolving packages using `pnpm-workspace.yaml`.

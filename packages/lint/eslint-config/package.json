@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-hkx",
+  "name": "@hkx/eslint-config",
   "version": "0.0.0",
   "description": "HKX 代码规范",
   "type": "module",
@@ -26,7 +26,18 @@
     "url": "https://github.com/withAthree/hkx-web-tools/issues"
   },
   "homepage": "https://github.com/withAthree/hkx-web-tools#readme",
-  "devDependencies": {
-    "vue-eslint-parser": "^10.2.0"
+  "dependencies": {
+    "vue-eslint-parser": "catalog:prod",
+    "@stylistic/eslint-plugin": "catalog:prod",
+    "eslint-import-resolver-typescript": "catalog:prod",
+    "eslint-plugin-import": "catalog:prod",
+    "eslint-plugin-jsx-a11y": "catalog:prod",
+    "eslint-plugin-vue": "catalog:prod",
+    "globals": "catalog:prod",
+    "typescript-eslint": "catalog:prod"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "eslint": "catalog:peer"
   }
 }
