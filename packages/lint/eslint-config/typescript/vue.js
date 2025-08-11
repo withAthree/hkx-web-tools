@@ -1,27 +1,27 @@
-import vueParser from 'vue-eslint-parser';
-import tseslint from 'typescript-eslint';
+import tseslint from "typescript-eslint";
 
-import vue from 'eslint-plugin-vue'
-
-
-
-import index from './index.js'
-import vueRules from '../rules/vue.js'
+import jsIndex from "../index.js";
+import tsRules from "../rules/typescript.js";
+import vueRules from "../rules/vue.js";
 
 export default [
-  ...vueRules,
-  ...index,
   {
-    files: ['*.vue', '**/*.vue'],
+    extends: [jsIndex, tsRules, vueRules],
+    files: ["**/*.{ts,tsx,vue}"],
     languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
       parserOptions: {
-        parser: tseslint.parser,
+        parser: {
+          ts: tseslint.parser,
+          tsx: tseslint.parser,
+          js: "espree",
+          jsx: "espree",
+        },
         ecmaFeatures: {
           jsx: true,
         },
-        projectService: true,
-        extraFileExtensions: ['.vue'],
-      }
-    }
-  }
-]
+      },
+    },
+  },
+];

@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "jsx": "preserve"
+    },
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+        "__tests__/**/*.ts",
+        "__tests__/**/*.vue"
+    ]
+}

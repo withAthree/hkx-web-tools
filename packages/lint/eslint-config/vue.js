@@ -1,22 +1,21 @@
-import vueRules from './rules/vue.js'
-import index from './index.js'
-import parserVue from "vue-eslint-parser";
+import vueRules from "./rules/vue.js";
+import index from "./index.js";
 
-const [vueConfig] = vueRules
 export default [
-  ...index,
   {
-    name: 'eslint-config/vue',
-    files: ['*.vue', '**/*.vue'],
+    extends: [index, vueRules],
+    files: ["**/*.{js,jsx,vue}"],
     languageOptions: {
-      sourceType: 'module',
-      parser: parserVue,
+      ecmaVersion: "latest",
+      sourceType: "module",
       parserOptions: {
+        parser: "espree",
         ecmaFeatures: {
+          globalReturn: false,
+          impliedStrict: true,
           jsx: true,
         },
       },
     },
-    ...vueConfig
-  }
-]
+  },
+];

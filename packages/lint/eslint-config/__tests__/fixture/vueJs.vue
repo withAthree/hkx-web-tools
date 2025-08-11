@@ -1,13 +1,14 @@
 <script setup lang="jsx">
-
-const a = computed(async () => { })
-
-const getDom = (index) => (<div>你好{index}</div>)
+const get = () => {
+  return <div>123</div>
+}
+// type TEST = {}
+const a = new Promise(async () => { })
 </script>
 
 <template>
-  <div v-for="item in 10" v-if="item % 2 === 0">
-    {{ getDom(item) }}
+  <div>
+    <div v-for="item in 10">{{ a.aa }}</div>
   </div>
 </template>
 

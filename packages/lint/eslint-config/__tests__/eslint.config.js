@@ -1,6 +1,8 @@
 import { defineConfig } from 'eslint/config';
-import vueConfig from '../vue.js'
+import vueTsConfig from '../typescript/vue.js';
+import vueJsConfig from '../vue.js';
+import typescriptConfig from '../typescript/index.js';
 
 export default defineConfig([
-  ...vueConfig
-])
+  ...vueTsConfig,
+]);
