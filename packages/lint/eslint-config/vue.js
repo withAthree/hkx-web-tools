@@ -1,15 +1,15 @@
-import vueRules from "./rules/vue.js";
-import index from "./index.js";
+import vueRules from './rules/vue.js';
+import index from './index.js';
 
 export default [
   {
     extends: [index, vueRules],
-    files: ["**/*.{js,jsx,vue}"],
+    files: ['**/*.{js,jsx,vue}'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parserOptions: {
-        parser: "espree",
+        parser: 'espree',
         ecmaFeatures: {
           globalReturn: false,
           impliedStrict: true,
