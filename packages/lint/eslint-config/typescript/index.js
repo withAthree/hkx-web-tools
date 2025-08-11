@@ -3,8 +3,6 @@ import index from "../index.js";
 
 import tseslint from "typescript-eslint";
 
-const [typeScriptRules, typescriptOverride] = typescript;
-
 export default [
   ...index,
   ...typescript,

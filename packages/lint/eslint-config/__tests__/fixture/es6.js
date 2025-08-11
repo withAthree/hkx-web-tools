@@ -1,3 +1,1 @@
-const fn1 = a => {
-  return a + 1
-}
+const fn1 = (a) => a + 1;

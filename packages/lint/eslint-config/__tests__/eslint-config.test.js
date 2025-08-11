@@ -27,11 +27,11 @@ const __dirname = dirname(__filename);             // 当前文件所在的目�
 // })
 
 test('validate eslint ts', async () => {
-  const filePath = path.join(__dirname, './fixture/vueJs.vue');
+  const filePath = path.join(__dirname, './fixture/es6.js');
   const configPath = path.join(__dirname, "./eslint.config.js");
   const eslint = new ESLint({
     overrideConfigFile: configPath,
-    fix: false
+    fix: true
   });
   const results = await eslint.lintFiles([filePath]);
   console.log(results[0])
