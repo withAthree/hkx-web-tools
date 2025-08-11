@@ -7,7 +7,7 @@ import vueRules from "../rules/vue.js";
 export default [
   {
     extends: [jsIndex, tsRules, vueRules],
-    files: ["**/*.{ts,tsx,vue}"],
+    files: ["**/*.{ts,tsx,js,jsx,vue}"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
