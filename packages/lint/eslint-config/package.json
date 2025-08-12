@@ -11,16 +11,24 @@
   ],
   "author": "withAthree <huangkaixiang8462@163.com>",
   "license": "ISC",
-  "main": "index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "directories": {
     "test": "__tests__"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/withAthree/hkx-web-tools.git"
   },
   "scripts": {
-    "test": "npx vitest"
+    "test": "npx vitest",
+    "build": "tsdown"
   },
   "bugs": {
     "url": "https://github.com/withAthree/hkx-web-tools/issues"
