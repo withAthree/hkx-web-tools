@@ -28,9 +28,9 @@
   },
   "homepage": "https://github.com/withAthree/hkx-web-tools#readme",
   "devDependencies": {
-    "stylelint": "catalog:peer"
+    "stylelint": "^16.23.0"
   },
   "peerDependencies": {
-    "stylelint": "catalog:peer"
+    "stylelint": "^16.23.0"
   }
 }
