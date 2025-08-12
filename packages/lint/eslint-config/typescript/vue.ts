@@ -8,6 +8,7 @@ import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
 
 export default [
   {
+    name: 'eslint-config/typescript/vue',
     extends: [jsIndex, tsRules, vueRules],
     files: ['**/*.{ts,tsx,js,jsx,vue}'],
     languageOptions: {

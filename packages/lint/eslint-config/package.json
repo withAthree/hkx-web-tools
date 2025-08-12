@@ -34,7 +34,8 @@
     "eslint-plugin-jsx-a11y": "catalog:prod",
     "eslint-plugin-vue": "catalog:prod",
     "globals": "catalog:prod",
-    "typescript-eslint": "catalog:prod"
+    "typescript-eslint": "catalog:prod",
+    "eslint-plugin-n": "catalog:prod"
   },
   "devDependencies": {},
   "peerDependencies": {

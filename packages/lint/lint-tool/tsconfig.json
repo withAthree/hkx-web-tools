@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "./lib",
+        "target": "ESNext",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "removeComments": true,
+        "resolveJsonModule": true,
+        "declaration": true,
+        "types": ["node"]
+    },
+    "include": ["src"]
+}

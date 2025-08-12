@@ -1,0 +1,31 @@
+{
+  "name": "@hkx/lint-tool",
+  "version": "0.0.0",
+  "description": "HKX 代码规范工具",
+  "keywords": [
+    "cli",
+    "hkx",
+    "lint",
+    "init",
+    "withAthree"
+  ],
+  "author": "withAthree <huangkaixiang8462@163.com>",
+  "license": "ISC",
+  "main": "index.js",
+  "directories": {
+    "test": "__tests__"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/withAthree/hkx-web-tools.git"
+  },
+  "scripts": {
+    "test": "npx vitest"
+  },
+  "bugs": {
+    "url": "https://github.com/withAthree/hkx-web-tools/issues"
+  },
+  "homepage": "https://github.com/withAthree/hkx-web-tools#readme",
+  "devDependencies": {},
+  "peerDependencies": {}
+}

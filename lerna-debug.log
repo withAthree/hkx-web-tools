@@ -7,13 +7,12 @@
 1 notice cli v8.2.3
 2 verbose packageConfigs Package manager "pnpm" detected. Resolving packages using `pnpm-workspace.yaml`.
 3 verbose rootPath D:\DEV\code\hkx-web-tools
-4 error Error: canceled
-4 error     at Interface.<anonymous> (D:\DEV\code\hkx-web-tools\node_modules\.pnpm\read@3.0.1\node_modules\read\dist\commonjs\read.js:89:21)
-4 error     at Interface.emit (node:events:518:28)
-4 error     at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1124:18)
-4 error     at ReadStream.onkeypress (node:internal/readline/interface:263:20)
-4 error     at ReadStream.emit (node:events:518:28)
-4 error     at emitKeys (node:internal/readline/utils:370:14)
-4 error     at emitKeys.next (<anonymous>)
-4 error     at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
-4 error     at ReadStream.emit (node:events:518:28)
+4 error Error: Unsupported URL Type "catalog:": catalog:prod
+4 error     at unsupportedURLType (D:\DEV\code\hkx-web-tools\node_modules\.pnpm\npm-package-arg@11.0.2\node_modules\npm-package-arg\lib\npa.js:310:15)
+4 error     at fromURL (D:\DEV\code\hkx-web-tools\node_modules\.pnpm\npm-package-arg@11.0.2\node_modules\npm-package-arg\lib\npa.js:367:13)
+4 error     at Function.resolve (D:\DEV\code\hkx-web-tools\node_modules\.pnpm\npm-package-arg@11.0.2\node_modules\npm-package-arg\lib\npa.js:83:12)
+4 error     at D:\DEV\code\hkx-web-tools\node_modules\.pnpm\@lerna+create@8.2.3_encoding@0.1.13_typescript@5.9.2\node_modules\@lerna\create\dist\command.js:4796:62
+4 error     at Array.forEach (<anonymous>)
+4 error     at D:\DEV\code\hkx-web-tools\node_modules\.pnpm\@lerna+create@8.2.3_encoding@0.1.13_typescript@5.9.2\node_modules\@lerna\create\dist\command.js:4776:42
+4 error     at PackageGraph.forEach (<anonymous>)
+4 error     at new PackageGraph (D:\DEV\code\hkx-web-tools\node_modules\.pnpm\@lerna+create@8.2.3_encoding@0.1.13_typescript@5.9.2\node_modules\@lerna\create\dist\command.js:4769:14)
