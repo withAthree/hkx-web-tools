@@ -6,6 +6,7 @@ export default [
     plugins: {
       'jsx-a11y': jsxA11y,
     },
+    files: ['*.{jsx,tsx,vue}', '**/*.{jsx,tsx,vue}'],
     rules: {
       // 确保所有需要替代文本的元素都包含有意义的信息，以便向最终用户传达。
       'jsx-a11y/alt-text': 'warn',
