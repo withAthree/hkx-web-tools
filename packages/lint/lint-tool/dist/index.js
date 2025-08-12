@@ -111,7 +111,7 @@ const VSCODE_SETTING_CONTENT = `
 //#endregion
 //#region src/utils.ts
 const getEslintConfigContent = (projectType, ignores) => `import { defineConfig } from 'eslint/config';
-import eslintConfig from 'hkx-eslint-config/${projectType}'
+import eslintConfig from 'hkx-eslint-config/${projectType.replace("index", "")}'
 
 export default defineConfig([
   ...eslintConfig,${ignores ? `\n  { ${ignores} }` : ""}

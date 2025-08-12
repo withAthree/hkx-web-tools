@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
 
 export const getEslintConfigContent = (projectType: string, ignores: string | null): string => `import { defineConfig } from 'eslint/config';
-import eslintConfig from 'hkx-eslint-config/${projectType}'
+import eslintConfig from 'hkx-eslint-config/${projectType.replace('index', '')}'
 
 export default defineConfig([
   ...eslintConfig,${ignores ? `\n  { ${ignores} }` : ''}

@@ -13,10 +13,9 @@
   "license": "ISC",
   "exports": {
     ".": "./dist/index.js",
-    "./vue/node": "./dist/vue/node.js",
-    "./node": "./dist/node.js",
     "./vue": "./dist/vue.js",
-    "./typescript": "./dist/typescript.js",
+    "./node": "./dist/node.js",
+    "./typescript": "./dist/typescript/index.js",
     "./typescript/vue": "./dist/typescript/vue.js",
     "./typescript/node": "./dist/typescript/node.js"
   },
