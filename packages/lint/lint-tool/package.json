@@ -2,16 +2,27 @@
   "name": "@hkx/lint-tool",
   "version": "0.0.0",
   "description": "HKX 代码规范工具",
+  "type": "module",
   "keywords": [
     "cli",
     "hkx",
     "lint",
     "init",
+    "eslint",
     "withAthree"
   ],
   "author": "withAthree <huangkaixiang8462@163.com>",
   "license": "ISC",
-  "main": "index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "bin": "./bin/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "bin",
+    "dist"
+  ],
   "directories": {
     "test": "__tests__"
   },
@@ -20,17 +31,18 @@
     "url": "git+https://github.com/withAthree/hkx-web-tools.git"
   },
   "scripts": {
-    "test": "npx vitest"
+    "test": "npx vitest",
+    "build": "tsdown --clean --dts"
   },
   "bugs": {
     "url": "https://github.com/withAthree/hkx-web-tools/issues"
   },
   "homepage": "https://github.com/withAthree/hkx-web-tools#readme",
   "dependencies": {
-    "@clack/prompts": "^0.11.0",
-    "ansis": "^4.1.0",
-    "cac": "^6.7.14",
-    "execa": "catalog:prod",
-    "fs-extra": "^11.3.1"
+    "@clack/prompts": "catalog:prod",
+    "ansis": "catalog:prod",
+    "cac": "catalog:prod",
+    "fs-extra": "catalog:prod",
+    "parse-gitignore": "catalog:prod"
   }
 }

@@ -34,11 +34,13 @@
     "eslint-plugin-n": "catalog:prod",
     "eslint-plugin-vue": "catalog:prod",
     "globals": "catalog:prod",
-    "parse-gitignore": "^2.0.0",
     "typescript-eslint": "catalog:prod",
     "vue-eslint-parser": "catalog:prod"
   },
   "peerDependencies": {
+    "eslint": "catalog:peer"
+  },
+  "resolutions": {
     "eslint": "catalog:peer"
   }
 }

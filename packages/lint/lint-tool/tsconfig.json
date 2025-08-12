@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
-        "outDir": "./lib",
         "target": "ESNext",
-        "module": "commonjs",
+        "baseUrl": ".",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "strict": true,
         "esModuleInterop": true,
-        "removeComments": true,
-        "resolveJsonModule": true,
-        "declaration": true,
-        "types": ["node"]
+        "skipLibCheck": true
     },
-    "include": ["src", "__tests__"]
+    "include": ["**/*.ts"],
+    "exclude": ["./__tests/fixture/**/*.*", "./__tests__/_fixture/**/*.*"]
 }

@@ -19,7 +19,11 @@ catalogs:
     typescript-eslint: ^8.39.0
     '@eslint/config-helpers': ^0.3.1
     eslint-plugin-n: ^17.21.3
-    execa: ^9.6.0
+    '@clack/prompts': ^0.11.0
+    ansis: ^4.1.0
+    cac: ^6.7.14
+    fs-extra: ^11.3.1
+    parse-gitignore: ^2.0.0
 
   peer:
     eslint: ^9.32.0
@@ -29,8 +33,8 @@ catalogs:
     typescript: ^5.9.2
     vitest: ^3.2.4
     tsdown: ^0.14.0
-    ts-node: ^10.9.2
     lerna: ^8.2.3
     cross-env: ^10.0.0
     '@types/eslint-plugin-jsx-a11y': ^6.10.0
     '@types/node': ^24.2.0
+    tsx: ^4.20.3

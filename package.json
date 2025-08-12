@@ -12,8 +12,8 @@
     "cross-env": "catalog:dev",
     "eslint": "catalog:peer",
     "lerna": "catalog:dev",
-    "ts-node": "catalog:dev",
     "tsdown": "catalog:dev",
+    "tsx": "catalog:dev",
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
   },

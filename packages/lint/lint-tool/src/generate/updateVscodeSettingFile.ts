@@ -1,3 +1,4 @@
+// @ts-expect-error missing types
 import fs from 'fs-extra';
 import path from 'node:path';
 import * as p from '@clack/prompts';

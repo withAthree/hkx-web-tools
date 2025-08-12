@@ -1,7 +1,11 @@
 import path from 'node:path';
+// @ts-expect-error missing types
 import fs from 'fs-extra';
+import { fileURLToPath } from 'node:url';
 
-const pkg: Record<string, any> = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8'));
+const dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const pkg: Record<string, any> = JSON.parse(fs.readFileSync(path.join(dirname, '../package.json'), 'utf-8'));
 
 export enum UNICODE {
   // ✔
