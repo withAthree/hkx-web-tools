@@ -111,13 +111,13 @@ const VSCODE_SETTING_CONTENT = `
 //#endregion
 //#region src/utils.ts
 const getEslintConfigContent = (projectType, ignores) => `import { defineConfig } from 'eslint/config';
-import eslintConfig from '@hkx/eslint-config/${projectType}'
+import eslintConfig from 'hkx-eslint-config/${projectType}'
 
 export default defineConfig([
   ...eslintConfig,${ignores ? `\n  { ${ignores} }` : ""}
 ])
 `;
-const getEslintConfigVersion = async () => await execSync("pnpm view @hkx/eslint-config version").toString("utf-8").trim();
+const getEslintConfigVersion = async () => await execSync("pnpm view hkx-eslint-config version").toString("utf-8").trim();
 
 //#endregion
 //#region src/generate/updateEslintFile.ts
@@ -180,7 +180,7 @@ var updatePackageJsonFile_default = async (result) => {
 	const pkgJsonContent = fs.readFileSync(pathPkgJson, "utf-8");
 	const pkg$1 = JSON.parse(pkgJsonContent);
 	pkg$1.devDependencies ??= {};
-	pkg$1.devDependencies["@hkx/eslint-config"] = `^${await getEslintConfigVersion()}`;
+	pkg$1.devDependencies["hkx-eslint-config"] = `^${await getEslintConfigVersion()}`;
 	pkg$1.devDependencies.eslint ??= VERSION_MAP.eslint;
 	pkg$1.scripts ??= {};
 	pkg$1.scripts.lint = "eslint";
@@ -279,9 +279,9 @@ const run = async (options = {}) => {
 //#region src/index.ts
 const header = () => {
 	console.log("\n");
-	p.intro(`${c.green`@hkx/eslint-config `}${c.dim`v${PKG_VERSION}`}`);
+	p.intro(`${c.green`hkx-eslint-config `}${c.dim`v${PKG_VERSION}`}`);
 };
-const cli = cac("@hkx/eslint-config");
+const cli = cac("hkx-eslint-config");
 cli.command("", "运行初始化").option("--yes, -y", "跳过确认步骤使用默认设置", { default: false }).action(async (options) => {
 	header();
 	try {

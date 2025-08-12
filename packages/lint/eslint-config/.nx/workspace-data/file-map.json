@@ -1,0 +1,191 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.8.2",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": "README.md",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "__tests__/eslint.config.ts",
+        "hash": "9522749548410345219"
+      },
+      {
+        "file": "__tests__/fixture/best-practices.js",
+        "hash": "16457555242832431610"
+      },
+      {
+        "file": "__tests__/fixture/es6.js",
+        "hash": "16295329767386208985"
+      },
+      {
+        "file": "__tests__/fixture/import.js",
+        "hash": "865072000748468942"
+      },
+      {
+        "file": "__tests__/fixture/possible-errors.js",
+        "hash": "2961623403368923629"
+      },
+      {
+        "file": "__tests__/fixture/vueJs.vue",
+        "hash": "7568830594281199714"
+      },
+      {
+        "file": "__tests__/index.test.ts",
+        "hash": "7343101491465927268"
+      },
+      {
+        "file": "__tests__/tsconfig.json",
+        "hash": "8674502400600964540"
+      },
+      {
+        "file": "dist/eslint-config-CV6O12vO.js",
+        "hash": "12612006418206566074"
+      },
+      {
+        "file": "dist/index.d.ts",
+        "hash": "16035172601859942337"
+      },
+      {
+        "file": "dist/index.js",
+        "hash": "2186755555913896771"
+      },
+      {
+        "file": "dist/jsx-a11y-vI7yjRkI.js",
+        "hash": "1411093776691575737"
+      },
+      {
+        "file": "dist/node-BCedUlu_.js",
+        "hash": "9416276147629568649"
+      },
+      {
+        "file": "dist/node.d.ts",
+        "hash": "17084495339863215554"
+      },
+      {
+        "file": "dist/node.js",
+        "hash": "6784820100083448350"
+      },
+      {
+        "file": "dist/typescript-BzyvxM81.js",
+        "hash": "7643735714048061359"
+      },
+      {
+        "file": "dist/typescript/index.d.ts",
+        "hash": "13873184319635982071"
+      },
+      {
+        "file": "dist/typescript/index.js",
+        "hash": "4300121602760630191"
+      },
+      {
+        "file": "dist/typescript/node.d.ts",
+        "hash": "1033580332301582452"
+      },
+      {
+        "file": "dist/typescript/node.js",
+        "hash": "13724128486392992495"
+      },
+      {
+        "file": "dist/typescript/vue.d.ts",
+        "hash": "12315792921865742425"
+      },
+      {
+        "file": "dist/typescript/vue.js",
+        "hash": "1731102721912478004"
+      },
+      {
+        "file": "dist/vue.d.ts",
+        "hash": "2619446223002746592"
+      },
+      {
+        "file": "dist/vue.js",
+        "hash": "15685009791693104118"
+      },
+      {
+        "file": "index.ts",
+        "hash": "14336281964454247732"
+      },
+      {
+        "file": "jsx-a11y.ts",
+        "hash": "2088377666423552107"
+      },
+      {
+        "file": "node.ts",
+        "hash": "9502771178460575845"
+      },
+      {
+        "file": "package.json",
+        "hash": "8151812843792375980"
+      },
+      {
+        "file": "rules/base/best-practices.ts",
+        "hash": "17322790534511132601"
+      },
+      {
+        "file": "rules/base/es6.ts",
+        "hash": "2172837121319126820"
+      },
+      {
+        "file": "rules/base/possible-errors.ts",
+        "hash": "5236523856414537191"
+      },
+      {
+        "file": "rules/base/strict.ts",
+        "hash": "15309218493671352777"
+      },
+      {
+        "file": "rules/base/style.ts",
+        "hash": "17120985660988522807"
+      },
+      {
+        "file": "rules/base/variables.ts",
+        "hash": "14763107098065294107"
+      },
+      {
+        "file": "rules/import.ts",
+        "hash": "16382722453108459348"
+      },
+      {
+        "file": "rules/jsx-a11y.ts",
+        "hash": "13605999627263063676"
+      },
+      {
+        "file": "rules/node.ts",
+        "hash": "12437631065665653259"
+      },
+      {
+        "file": "rules/typescript.ts",
+        "hash": "4270617912994869953"
+      },
+      {
+        "file": "rules/vue.ts",
+        "hash": "5646343675033505828"
+      },
+      {
+        "file": "tsdown.config.ts",
+        "hash": "15461037681939465972"
+      },
+      {
+        "file": "typescript/index.ts",
+        "hash": "14369935403393791720"
+      },
+      {
+        "file": "typescript/node.ts",
+        "hash": "5019604934483115431"
+      },
+      {
+        "file": "typescript/vue.ts",
+        "hash": "2858611599052396652"
+      },
+      {
+        "file": "vue.ts",
+        "hash": "17794193494247948453"
+      }
+    ]
+  }
+}
