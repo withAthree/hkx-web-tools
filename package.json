@@ -1,8 +1,11 @@
 {
   "name": "root",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "publish": "lerna publish --no-private",
+    "clean": "lerna clean && rm -rf node_modules",
     "test": "npx vitest"
   },
   "devDependencies": {
