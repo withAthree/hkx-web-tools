@@ -1,6 +1,6 @@
 import { defineConfig } from 'eslint/config';
 
-import tseslintConfig from '@hkx/eslint-config/typescript/node';
+import tseslintConfig from 'hkx-eslint-config/typescript/node';
 
 export default defineConfig([
   ...tseslintConfig,

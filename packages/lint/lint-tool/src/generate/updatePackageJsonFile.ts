@@ -17,7 +17,7 @@ export default async (result: PromptResult): Promise<void> => {
 
   // 处理 eslint 相关
   pkg.devDependencies ??= {};
-  pkg.devDependencies['@hkx/eslint-config'] = `^${await getEslintConfigVersion()}`;
+  pkg.devDependencies['hkx-eslint-config'] = `^${await getEslintConfigVersion()}`;
   pkg.devDependencies.eslint ??= VERSION_MAP.eslint;
   pkg.scripts ??= {};
   pkg.scripts.lint = 'eslint';

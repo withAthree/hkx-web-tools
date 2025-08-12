@@ -7,10 +7,10 @@ import { run } from './run';
 
 const header = ():void => {
   console.log('\n');
-  p.intro(`${c.green`@hkx/eslint-config `}${c.dim`v${PKG_VERSION}`}`);
+  p.intro(`${c.green`hkx-eslint-config `}${c.dim`v${PKG_VERSION}`}`);
 };
 
-const cli = cac('@hkx/eslint-config');
+const cli = cac('hkx-eslint-config');
 
 cli
   .command('', '运行初始化')

@@ -8,12 +8,6 @@ importers:
 
   .:
     devDependencies:
-      '@hkx/eslint-config':
-        specifier: workspace:*
-        version: link:packages/lint/eslint-config
-      '@hkx/stylelint-config':
-        specifier: workspace:*
-        version: link:packages/lint/stylelint-config
       '@types/eslint-plugin-jsx-a11y':
         specifier: ^6.10.0
         version: 6.10.0
@@ -26,6 +20,12 @@ importers:
       eslint:
         specifier: ^9.32.0
         version: 9.32.0(jiti@2.5.1)
+      hkx-eslint-config:
+        specifier: workspace:*
+        version: link:packages/lint/eslint-config
+      hkx-stylelint-config:
+        specifier: workspace:*
+        version: link:packages/lint/stylelint-config
       lerna:
         specifier: ^8.2.3
         version: 8.2.3(encoding@0.1.13)
