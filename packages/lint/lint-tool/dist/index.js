@@ -117,7 +117,7 @@ export default defineConfig([
   ...eslintConfig,${ignores ? `\n  { ${ignores} }` : ""}
 ])
 `;
-const getEslintConfigVersion = async () => await execSync("pnpm view eslint version").toString("utf-8").trim();
+const getEslintConfigVersion = async () => await execSync("pnpm view @hkx/eslint-config version").toString("utf-8").trim();
 
 //#endregion
 //#region src/generate/updateEslintFile.ts
@@ -134,7 +134,7 @@ var updateEslintFile_default = async (result) => {
 	const pathFlatConfig = path.join(cwd, configFileName);
 	const eslintIgnores = [];
 	if (fs.existsSync(pathESLintIgnore)) {
-		p.log.step(c.cyan`迁移现有的 .eslintignore 文件`);
+		p.log.step(c.cyan`迁移现有的 .eslintignore 文件！`);
 		const content = await fs.readFileSync(pathESLintIgnore, "utf-8");
 		const parsed = parse(content);
 		const globs = parsed.globs();
@@ -145,13 +145,13 @@ var updateEslintFile_default = async (result) => {
 	if (eslintIgnores.length) configLines = `ignores: ${JSON.stringify(eslintIgnores)},`;
 	const eslintConfigContent = getEslintConfigContent(projectType, configLines);
 	await fs.writeFile(pathFlatConfig, eslintConfigContent);
-	p.log.success(c.green`${configFileName} 已创建`);
+	p.log.success(c.green`${configFileName} 已创建！`);
 	const files = fs.readdirSync(cwd);
 	const legacyConfig = [];
 	files.forEach((file) => {
 		if (/eslint|prettier/.test(file) && !/eslint\.config\./.test(file)) legacyConfig.push(file);
 	});
-	if (legacyConfig.length) p.note(c.dim(legacyConfig.join(", ")), "你可以手动删除这些文件");
+	if (legacyConfig.length) p.note(c.dim(legacyConfig.join(", ")), "你可以手动删除这些文件！");
 };
 
 //#endregion
@@ -189,7 +189,7 @@ var updatePackageJsonFile_default = async (result) => {
 	if (result.enableMarkdownlint) {}
 	if (result.enableCommitlint) {}
 	await fs.writeFileSync(pathPkgJson, JSON.stringify(pkg$1, null, 2));
-	p.log.success(c.green`更改已写入 package.json`);
+	p.log.success(c.green`更改已写入 package.json ！`);
 };
 
 //#endregion
@@ -205,7 +205,7 @@ var updateVscodeSettingFile_default = async (result) => {
 	vscodeSettingContent += vscodeSettingContent.endsWith(",") || vscodeSettingContent.endsWith("{") ? "" : ",";
 	vscodeSettingContent += `${VSCODE_SETTING_CONTENT}}\n`;
 	fs.writeFileSync(settingsPath, vscodeSettingContent, "utf-8");
-	p.log.success(c.green`.vscode/settings.json 已更新`);
+	p.log.success(c.green`.vscode/settings.json 已更新！`);
 };
 
 //#endregion
@@ -220,7 +220,7 @@ const run = async (options = {}) => {
 	const argSkipPrompt = options.yes;
 	const existingConfig = configFiles.find((file) => fs.existsSync(path.join(process.cwd(), file)));
 	if (existingConfig) {
-		p.log.warn(c.yellow`${existingConfig} 已经存在，请删除后重试`);
+		p.log.warn(c.yellow`${existingConfig} 已经存在，请删除后重试！`);
 		return process.exit(1);
 	}
 	let result = {
@@ -262,7 +262,7 @@ const run = async (options = {}) => {
 			initialValue: true
 		})
 	}, { onCancel: () => {
-		p.cancel("操作已取消");
+		p.cancel("操作已取消！");
 		process.exit(0);
 	} });
 	await updateEslintFile_default(result);
@@ -271,8 +271,8 @@ const run = async (options = {}) => {
 	await updateCommitlintFile_default(result);
 	await updatePackageJsonFile_default(result);
 	await updateVscodeSettingFile_default(result);
-	p.log.success(c.green`操作完成`);
-	p.outro(`现在可以通过运行 ${c.blue("pnpm install")} 更新依赖。`);
+	p.log.success(c.green`操作完成！`);
+	p.outro(`现在可以通过运行 ${c.blue("pnpm install")} 更新依赖！`);
 };
 
 //#endregion

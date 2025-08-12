@@ -12,7 +12,13 @@
   "author": "withAthree <huangkaixiang8462@163.com>",
   "license": "ISC",
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./dist/index.js",
+    "./vue/node": "./dist/vue/node.js",
+    "./node": "./dist/node.js",
+    "./vue": "./dist/vue.js",
+    "./typescript": "./dist/typescript.js",
+    "./typescript/vue": "./dist/typescript/vue.js",
+    "./typescript/node": "./dist/typescript/node.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

@@ -39,5 +39,5 @@ export default async (result: PromptResult): Promise<void> => {
   }
 
   await fs.writeFileSync(pathPkgJson, JSON.stringify(pkg, null, 2));
-  p.log.success(c.green`更改已写入 package.json`);
+  p.log.success(c.green`更改已写入 package.json ！`);
 };

@@ -26,7 +26,7 @@ export default async (result: PromptResult): Promise<void> => {
 
   const eslintIgnores: string[] = [];
   if (fs.existsSync(pathESLintIgnore)) {
-    p.log.step(c.cyan`迁移现有的 .eslintignore 文件`);
+    p.log.step(c.cyan`迁移现有的 .eslintignore 文件！`);
     const content = await fs.readFileSync(pathESLintIgnore, 'utf-8');
     const parsed = parse(content);
     const globs = parsed.globs();
@@ -47,13 +47,13 @@ export default async (result: PromptResult): Promise<void> => {
 
   const eslintConfigContent = getEslintConfigContent(projectType, configLines);
   await fs.writeFile(pathFlatConfig, eslintConfigContent);
-  p.log.success(c.green`${configFileName} 已创建`);
+  p.log.success(c.green`${configFileName} 已创建！`);
 
   const files = fs.readdirSync(cwd);
   const legacyConfig: string[] = [];
-  files.forEach((file) => {
+  files.forEach((file: string) => {
     if (/eslint|prettier/.test(file) && !/eslint\.config\./.test(file)) legacyConfig.push(file);
   });
 
-  if (legacyConfig.length) p.note(c.dim(legacyConfig.join(', ')), '你可以手动删除这些文件');
+  if (legacyConfig.length) p.note(c.dim(legacyConfig.join(', ')), '你可以手动删除这些文件！');
 };

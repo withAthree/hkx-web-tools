@@ -1,5 +1,5 @@
 import { eslint_config_default } from "../eslint-config-CV6O12vO.js";
-import { vue_default } from "../vue-Cd7GiMyR.js";
+import { jsx_a11y_default, vue_default } from "../jsx-a11y-vI7yjRkI.js";
 import { typescript_default } from "../typescript-BzyvxM81.js";
 import tseslint from "typescript-eslint";
 
@@ -8,6 +8,7 @@ var vue_default$1 = [{
 	name: "eslint-config/typescript/vue",
 	extends: [
 		eslint_config_default,
+		jsx_a11y_default,
 		typescript_default,
 		vue_default
 	],

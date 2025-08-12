@@ -21,7 +21,7 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
   const existingConfig = configFiles.find((file) => fs.existsSync(path.join(process.cwd(), file)));
 
   if (existingConfig) {
-    p.log.warn(c.yellow`${existingConfig} 已经存在，请删除后重试`);
+    p.log.warn(c.yellow`${existingConfig} 已经存在，请删除后重试！`);
     return process.exit(1);
   }
 
@@ -43,7 +43,7 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
       }),
       enableStylelint: ({ results }) => {
         if (disabledProjectType.some((item) => item.value === results.projectType)) {
-          p.log.error(c.red(`${PROJECT_TYPE.find((item) => item.value === results.projectType).label.replace(UN_DEV, '')} 目前暂不支持`));
+          p.log.error(c.red(`${PROJECT_TYPE.find((item) => item.value === results.projectType)!.label.replace(UN_DEV, '')} 目前暂不支持`));
           process.exit(1);
         }
         return p.confirm({
@@ -65,13 +65,12 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
       }),
     }, {
       onCancel: () => {
-        p.cancel('操作已取消');
+        p.cancel('操作已取消！');
         process.exit(0);
       },
     }) as PromptResult;
   }
 
-  // TODO: 根据结果处理文件
   await updateEslintFile(result);
   await updateStylelintFile(result);
   await updateMarkdownlintFile(result);
@@ -79,6 +78,6 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
   await updatePackageJsonFile(result);
   await updateVscodeSettingFile(result);
 
-  p.log.success(c.green`操作完成`);
-  p.outro(`现在可以通过运行 ${c.blue('pnpm install')} 更新依赖。`);
+  p.log.success(c.green`操作完成！`);
+  p.outro(`现在可以通过运行 ${c.blue('pnpm install')} 更新依赖！`);
 };

@@ -9,7 +9,7 @@ const rootDirname = dirname(filename);
 
 
 it('validate eslint ts', async () => {
-  const filePath = path.join(rootDirname, './fixture/vueJs.vue');
+  const filePath = path.join(rootDirname, './fixture/es6.js');
   const configPath = path.join(rootDirname, './eslint.config.ts');
   const eslint = new ESLint({
     overrideConfigFile: configPath,
