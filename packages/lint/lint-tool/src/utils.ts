@@ -8,4 +8,4 @@ export default defineConfig([
 ])
 `;
 
-export const getEslintConfigVersion = async ():Promise<string> => await execSync('pnpm view eslint version').toString('utf-8').trim();
+export const getEslintConfigVersion = async ():Promise<string> => await execSync('pnpm view @hkx/eslint-config version').toString('utf-8').trim();

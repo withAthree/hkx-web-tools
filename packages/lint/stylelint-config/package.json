@@ -1,5 +1,6 @@
 {
   "name": "@hkx/stylelint-config",
+  "private": true,
   "version": "0.0.0",
   "description": "HKX CSS 规范",
   "keywords": [
