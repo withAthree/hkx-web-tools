@@ -20,8 +20,8 @@
     "./typescript/vue": "./dist/typescript/vue.js",
     "./typescript/node": "./dist/typescript/node.js"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/**/*",
+  "types": "./dist/**/*.d.ts",
   "directories": {
     "test": "__tests__"
   },

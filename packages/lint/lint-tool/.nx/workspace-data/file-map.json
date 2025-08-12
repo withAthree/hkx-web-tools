@@ -1,0 +1,87 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.8.2",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": "README.md",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "__tests__/cli.test.ts",
+        "hash": "13895102798636734324"
+      },
+      {
+        "file": "bin/index.js",
+        "hash": "2333966156006977314"
+      },
+      {
+        "file": "dist/index.d.ts",
+        "hash": "14075525032461667148"
+      },
+      {
+        "file": "dist/index.js",
+        "hash": "4577284235239684378"
+      },
+      {
+        "file": "package.json",
+        "hash": "15374868248357767108"
+      },
+      {
+        "file": "src/constants.ts",
+        "hash": "14586350113320852662"
+      },
+      {
+        "file": "src/generate/updateCommitlintFile.ts",
+        "hash": "7778030089541868715"
+      },
+      {
+        "file": "src/generate/updateEslintFile.ts",
+        "hash": "11140555903597247370"
+      },
+      {
+        "file": "src/generate/updateMarkdownlintFile.ts",
+        "hash": "7778030089541868715"
+      },
+      {
+        "file": "src/generate/updatePackageJsonFile.ts",
+        "hash": "32834690992214145"
+      },
+      {
+        "file": "src/generate/updateStylelintFile.ts",
+        "hash": "7778030089541868715"
+      },
+      {
+        "file": "src/generate/updateVscodeSettingFile.ts",
+        "hash": "17238318327691227596"
+      },
+      {
+        "file": "src/index.ts",
+        "hash": "13620643295966282004"
+      },
+      {
+        "file": "src/run.ts",
+        "hash": "11191780516025987159"
+      },
+      {
+        "file": "src/types.ts",
+        "hash": "1999744443535056824"
+      },
+      {
+        "file": "src/utils.ts",
+        "hash": "6380827592342942442"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "7065360102486323408"
+      },
+      {
+        "file": "tsdown.config.ts",
+        "hash": "1797886902086261599"
+      }
+    ]
+  }
+}
