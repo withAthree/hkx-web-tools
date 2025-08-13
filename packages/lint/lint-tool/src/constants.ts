@@ -66,6 +66,7 @@ export const PROJECT_TYPE = [
 
 export const VERSION_MAP = {
   eslint: '^9.32.0',
+  stylelint: '^16.23.0',
 };
 
 export const VSCODE_SETTING_CONTENT = `

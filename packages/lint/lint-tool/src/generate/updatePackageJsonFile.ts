@@ -5,7 +5,7 @@ import fs from 'fs-extra';
 import path from 'node:path';
 import * as p from '@clack/prompts';
 import c from 'ansis';
-import { getEslintConfigVersion } from '../utils';
+import { getPackageVersion } from '../utils';
 import { VERSION_MAP } from '../constants';
 
 export default async (result: PromptResult): Promise<void> => {
@@ -17,7 +17,7 @@ export default async (result: PromptResult): Promise<void> => {
 
   // 处理 eslint 相关
   pkg.devDependencies ??= {};
-  pkg.devDependencies['hkx-eslint-config'] = `^${await getEslintConfigVersion()}`;
+  pkg.devDependencies['hkx-eslint-config'] = `^${await getPackageVersion('hkx-eslint-config')}`;
   pkg.devDependencies.eslint ??= VERSION_MAP.eslint;
   pkg.scripts ??= {};
   pkg.scripts.lint = 'eslint';
@@ -25,7 +25,8 @@ export default async (result: PromptResult): Promise<void> => {
 
   // 处理 Stylelint 相关
   if (result.enableStylelint) {
-    /** TODO */
+    pkg.devDependencies['hkx-stylelint-config'] = `^${await getPackageVersion('hkx-stylelint-config')}`;
+    pkg.devDependencies.stylelint ??= VERSION_MAP.stylelint;
   }
 
   // 处理 markdownlint 相关

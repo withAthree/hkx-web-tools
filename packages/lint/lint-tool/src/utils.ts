@@ -8,4 +8,4 @@ export default defineConfig([
 ])
 `;
 
-export const getEslintConfigVersion = async ():Promise<string> => execSync('pnpm view hkx-eslint-config version').toString('utf-8').trim();
+export const getPackageVersion = async (packageName: string):Promise<string> => execSync(`pnpm view ${packageName} version`).toString('utf-8').trim();

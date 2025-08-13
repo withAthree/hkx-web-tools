@@ -7,7 +7,6 @@ import c from 'ansis';
 import { CliRunOptions, ProjectType, PromptResult } from './types';
 import { PROJECT_TYPE, UN_DEV } from './constants';
 import updateEslintFile from './generate/updateEslintFile';
-import updateStylelintFile from './generate/updateStylelintFile';
 import updateMarkdownlintFile from './generate/updateMarkdownlintFile';
 import updateCommitlintFile from './generate/updateCommitlintFile';
 import updatePackageJsonFile from './generate/updatePackageJsonFile';
@@ -47,7 +46,7 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
           process.exit(1);
         }
         return p.confirm({
-          message: '是否启用 stylelint？(开发中，即将支持)',
+          message: '是否需要 stylelint 配置？',
           initialValue: false,
         });
       },
@@ -72,7 +71,6 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
   }
 
   await updateEslintFile(result);
-  await updateStylelintFile(result);
   await updateMarkdownlintFile(result);
   await updateCommitlintFile(result);
   await updatePackageJsonFile(result);
