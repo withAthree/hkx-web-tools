@@ -55,7 +55,10 @@ const PROJECT_TYPE = [
 		disabled: true
 	}
 ];
-const VERSION_MAP = { eslint: "^9.32.0" };
+const VERSION_MAP = {
+	eslint: "^9.32.0",
+	stylelint: "^16.23.0"
+};
 const VSCODE_SETTING_CONTENT = `
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
@@ -117,7 +120,7 @@ export default defineConfig([
   ...eslintConfig,${ignores ? `\n  { ${ignores} }` : ""}
 ])
 `;
-const getEslintConfigVersion = async () => execSync("pnpm view hkx-eslint-config version").toString("utf-8").trim();
+const getPackageVersion = async (packageName) => execSync(`pnpm view ${packageName} version`).toString("utf-8").trim();
 
 //#endregion
 //#region src/generate/updateEslintFile.ts
@@ -155,12 +158,6 @@ var updateEslintFile_default = async (result) => {
 };
 
 //#endregion
-//#region src/generate/updateStylelintFile.ts
-var updateStylelintFile_default = async (result) => {
-	/** TODO */
-};
-
-//#endregion
 //#region src/generate/updateMarkdownlintFile.ts
 var updateMarkdownlintFile_default = async (result) => {
 	/** TODO */
@@ -180,12 +177,15 @@ var updatePackageJsonFile_default = async (result) => {
 	const pkgJsonContent = fs.readFileSync(pathPkgJson, "utf-8");
 	const pkg$1 = JSON.parse(pkgJsonContent);
 	pkg$1.devDependencies ??= {};
-	pkg$1.devDependencies["hkx-eslint-config"] = `^${await getEslintConfigVersion()}`;
+	pkg$1.devDependencies["hkx-eslint-config"] = `^${await getPackageVersion("hkx-eslint-config")}`;
 	pkg$1.devDependencies.eslint ??= VERSION_MAP.eslint;
 	pkg$1.scripts ??= {};
 	pkg$1.scripts.lint = "eslint";
 	pkg$1.scripts["lint:fix"] = "eslint --fix";
-	if (result.enableStylelint) {}
+	if (result.enableStylelint) {
+		pkg$1.devDependencies["hkx-stylelint-config"] = `^${await getPackageVersion("hkx-stylelint-config")}`;
+		pkg$1.devDependencies.stylelint ??= VERSION_MAP.stylelint;
+	}
 	if (result.enableMarkdownlint) {}
 	if (result.enableCommitlint) {}
 	await fs.writeFileSync(pathPkgJson, JSON.stringify(pkg$1, null, 2));
@@ -245,7 +245,7 @@ const run = async (options = {}) => {
 				process.exit(1);
 			}
 			return p.confirm({
-				message: "是否启用 stylelint？(开发中，即将支持)",
+				message: "是否需要 stylelint 配置？",
 				initialValue: false
 			});
 		},
@@ -266,7 +266,6 @@ const run = async (options = {}) => {
 		process.exit(0);
 	} });
 	await updateEslintFile_default(result);
-	await updateStylelintFile_default(result);
 	await updateMarkdownlintFile_default(result);
 	await updateCommitlintFile_default(result);
 	await updatePackageJsonFile_default(result);
