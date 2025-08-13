@@ -1,0 +1,95 @@
+body {
+    background: #00;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 混合使用不同格式 */
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    .bt {
+        color: #000;
+    }
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #ffffff;
+    border: 1px solid #007bff;
+}
+
+.btn-primary:hover {
+    background: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: #ffffff;
+    border: 1px solid #6c757d;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    border-color: #545b62;
+}
+
+/* 不一致的命名约定 */
+.header-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.main_content {
+    margin-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footerContainer {
+    margin-top: 50px;
+    background: #343a40;
+    padding: 20px;
+    color: white;
+}
+
+/* 导航栏 */
+nav {
+    background: #333333;
+    padding: 10px;
+    color: white;
+}
