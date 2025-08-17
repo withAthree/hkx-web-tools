@@ -69,6 +69,7 @@ export const VERSION_MAP = {
   stylelint: '^16.23.0',
   'simple-git-hooks': '^2.13.1',
   'lint-staged': '^16.1.5',
+  markdownlint: '^0.38.0',
 };
 
 export const VSCODE_SETTING_CONTENT = `
@@ -121,4 +122,9 @@ export const VSCODE_SETTING_CONTENT = `
     "pcss",
     "postcss"
   ]
+`;
+
+export const MARKDOWNLINT_CONFIG = `{
+  "extends": "hkx-markdownlint-config"
+}
 `;

@@ -17,8 +17,10 @@
     "eslint": "^9.32.0",
     "hkx-eslint-config": "workspace:*",
     "hkx-stylelint-config": "workspace:*",
+    "hkx-markdownlint-config": "workspace:*",
     "lerna": "^8.2.3",
     "lint-staged": "^16.1.5",
+    "markdownlint": "^0.38.0",
     "simple-git-hooks": "^2.13.1",
     "tsdown": "^0.14.0",
     "tsx": "^4.20.3",
@@ -33,6 +35,6 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*.{ts,js,jsx,tsx,vue}": "eslint --fix"
   }
 }

@@ -25,6 +25,7 @@ export default async (result: PromptResult): Promise<void> => {
   vscodeSettingContent += vscodeSettingContent.endsWith(',') || vscodeSettingContent.endsWith('{') ? '' : ',';
   vscodeSettingContent += `${VSCODE_SETTING_CONTENT}}\n`;
 
-  fs.writeFileSync(settingsPath, vscodeSettingContent, 'utf-8');
+  fs.writeFile(settingsPath, vscodeSettingContent, 'utf-8');
+
   p.log.success(c.green`.vscode/settings.json 已更新！`);
 };

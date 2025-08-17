@@ -50,7 +50,7 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
         });
       },
       enableMarkdownlint: () => p.confirm({
-        message: `是否启用 markdownlint？${UN_DEV}`,
+        message: '是否需要 markdownlint 配置？',
         initialValue: false,
       }),
       enableCommitlint: () => p.confirm({

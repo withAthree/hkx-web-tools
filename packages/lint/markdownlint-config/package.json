@@ -1,0 +1,28 @@
+{
+  "name": "hkx-markdownlint-config",
+  "version": "0.0.0",
+  "description": "HKX Markdown 规范",
+  "keywords": [
+    "markdownlint",
+    "hkx",
+    "lint",
+    "markdown"
+  ],
+  "author": "withAthree <huangkaixiang8462@163.com>",
+  "license": "ISC",
+  "main": "index.json",
+  "directories": {
+    "test": "__tests__"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/withAthree/hkx-web-tools.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/markdownlint-config.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/withAthree/hkx-web-tools/issues"
+  },
+  "homepage": "https://github.com/withAthree/hkx-web-tools#readme"
+}
