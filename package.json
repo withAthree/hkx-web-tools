@@ -5,6 +5,7 @@
     "preinstall": "npx only-allow pnpm",
     "publish": "lerna publish --no-private",
     "clean": "lerna clean && rm -rf node_modules",
+    "build": "lerna run build",
     "test": "npx vitest",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
