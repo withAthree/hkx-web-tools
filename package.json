@@ -5,24 +5,32 @@
     "preinstall": "npx only-allow pnpm",
     "publish": "lerna publish --no-private",
     "clean": "lerna clean && rm -rf node_modules",
-    "test": "npx vitest"
+    "test": "npx vitest",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "devDependencies": {
-    "hkx-eslint-config": "workspace:*",
-    "hkx-stylelint-config": "workspace:*",
     "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "@types/node": "^24.2.0",
     "cross-env": "^10.0.0",
     "eslint": "^9.32.0",
+    "hkx-eslint-config": "workspace:*",
+    "hkx-stylelint-config": "workspace:*",
     "lerna": "^8.2.3",
+    "lint-staged": "^16.1.5",
     "tsdown": "^0.14.0",
     "tsx": "^4.20.3",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },
   "packageManager": "pnpm@10.14.0",
-  "dependencies": {},
   "engines": {
     "node": ">=21.1.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
