@@ -5,6 +5,6 @@ import tseslintConfig from 'hkx-eslint-config/typescript/node';
 export default defineConfig([
   ...tseslintConfig,
   {
-    ignores: ['**/node_modules/*', '**/dist/*', '**/__tests__/**/*'],
+    ignores: ['**/node_modules/*', '**/dist/*', '**/__tests__/**/*', '**/.husky/**/*', '**/.idea/**/*', '**/.vscode/**/*'],
   },
 ]);

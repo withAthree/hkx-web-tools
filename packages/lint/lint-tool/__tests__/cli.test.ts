@@ -1,8 +1,12 @@
 import { it } from 'vitest';
-import path from 'node:path';
+import path, {dirname} from 'node:path';
+import {execSync} from "child_process";
+import {fileURLToPath} from "node:url";
 
-// const cli = () => execa('node', [path.resolve(__dirname, '../src/cli.ts'), ...args], options);
+
+const filename = fileURLToPath(import.meta.url);
+const rootDirname = dirname(filename);
 
 it('cli test', async () => {
-  // const { stdout } = await cli();
+    const cliPath = path.join(rootDirname, '../dist/index.js');
 });

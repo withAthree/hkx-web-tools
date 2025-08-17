@@ -8,7 +8,6 @@ import { CliRunOptions, ProjectType, PromptResult } from './types';
 import { PROJECT_TYPE, UN_DEV } from './constants';
 import updateEslintFile from './generate/updateEslintFile';
 import updateMarkdownlintFile from './generate/updateMarkdownlintFile';
-import updateCommitlintFile from './generate/updateCommitlintFile';
 import updatePackageJsonFile from './generate/updatePackageJsonFile';
 import updateVscodeSettingFile from './generate/updateVscodeSettingFile';
 
@@ -55,7 +54,7 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
         initialValue: false,
       }),
       enableCommitlint: () => p.confirm({
-        message: `是否启用 commitlint？${UN_DEV}`,
+        message: '是否启用 git commit 自动修复？',
         initialValue: false,
       }),
       updateVscodeSetting: () => p.confirm({
@@ -72,10 +71,14 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
 
   await updateEslintFile(result);
   await updateMarkdownlintFile(result);
-  await updateCommitlintFile(result);
   await updatePackageJsonFile(result);
   await updateVscodeSettingFile(result);
 
   p.log.success(c.green`操作完成！`);
-  p.outro(`现在可以通过运行 ${c.blue('pnpm install')} 更新依赖！`);
+
+  let msg = `现在可以通过运行 ${c.blue('pnpm install')} 更新依赖！`;
+  if (result.enableCommitlint) {
+    msg = `${msg}并运行 ${c.blue('npx simple-git-hooks')} 初始化 git 钩子！`;
+  }
+  p.outro(msg);
 };

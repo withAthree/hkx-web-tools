@@ -1,0 +1,27 @@
+{
+  "name": "__tests__",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "hkx-eslint-config": "^1.1.2",
+    "eslint": "^9.32.0",
+    "simple-git-hooks": "^2.13.1",
+    "lint-staged": "^16.1.5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": "eslint --fix"
+  }
+}

@@ -34,11 +34,43 @@ export default async (result: PromptResult): Promise<void> => {
     /** TODO */
   }
 
-  // 处理 commitlint 相关
+  // 处理 commit auto-fix 相关
   if (result.enableCommitlint) {
-    /** TODO */
+    pkg.devDependencies['simple-git-hooks'] = VERSION_MAP['simple-git-hooks'];
+    pkg.devDependencies['lint-staged'] = VERSION_MAP['lint-staged'];
+
+    pkg['simple-git-hooks'] = {
+      'pre-commit': 'pnpm lint-staged',
+    };
+
+    const hasTypeScript = result.projectType.includes('typescript');
+    const hasReactOrVue = result.projectType.includes('react') || result.projectType.includes('vue');
+    const hasVue = result.projectType.includes('vue');
+
+    const fileTypeConfig = [
+      { condition: true, types: ['js'] },
+      { condition: hasTypeScript, types: ['ts'] },
+      { condition: hasReactOrVue, types: ['jsx'] },
+      { condition: hasReactOrVue && hasTypeScript, types: ['tsx'] },
+      { condition: hasVue, types: ['vue'] },
+    ];
+
+    const fileTypes = fileTypeConfig.reduce((acc, { condition, types }) => {
+      if (condition) acc.push(...types);
+      return acc;
+    }, [] as string[]);
+
+    if (fileTypes.length === 1) {
+      pkg['lint-staged'] = {
+        [`*.${fileTypes[0]}`]: 'eslint --fix',
+      };
+    } else {
+      pkg['lint-staged'] = {
+        [`*.{${fileTypes.join(',')}}`]: 'eslint --fix',
+      };
+    }
   }
 
-  await fs.writeFileSync(pathPkgJson, JSON.stringify(pkg, null, 2));
+  await fs.writeFile(pathPkgJson, JSON.stringify(pkg, null, 2));
   p.log.success(c.green`更改已写入 package.json ！`);
 };
