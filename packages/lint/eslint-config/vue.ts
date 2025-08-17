@@ -1,6 +1,6 @@
 import vueRules from './rules/vue';
 import index from './index';
-import jsxA11y from "./rules/jsx-a11y";
+import jsxA11y from './rules/jsx-a11y';
 
 import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
 

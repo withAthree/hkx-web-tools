@@ -2,7 +2,7 @@ import path, { dirname } from 'node:path';
 import { ESLint } from 'eslint';
 import { fileURLToPath } from 'node:url';
 
-import { it } from 'vitest'
+import { it } from 'vitest';
 
 const filename = fileURLToPath(import.meta.url);
 const rootDirname = dirname(filename);
