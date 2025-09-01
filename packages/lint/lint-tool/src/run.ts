@@ -5,7 +5,9 @@ import * as p from '@clack/prompts';
 import c from 'ansis';
 
 import { CliRunOptions, ProjectType, PromptResult } from './types';
-import { PROJECT_TYPE, UN_DEV } from './constants';
+
+// , UN_DEV
+import { PROJECT_TYPE } from './constants';
 import updateEslintFile from './generate/updateEslintFile';
 import updateMarkdownlintFile from './generate/updateMarkdownlintFile';
 import updatePackageJsonFile from './generate/updatePackageJsonFile';
@@ -31,7 +33,7 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
     updateVscodeSetting: true,
   };
 
-  const disabledProjectType = PROJECT_TYPE.filter((item) => item.label.includes('未开发'));
+  // const disabledProjectType = PROJECT_TYPE.filter((item) => item.label.includes('未开发'));
 
   if (!argSkipPrompt) {
     result = await p.group({
@@ -39,20 +41,23 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
         message: '请选择项目类型：',
         options: PROJECT_TYPE.map(({ label, value }) => ({ label, value })),
       }),
-      enableStylelint: ({ results }) => {
-        if (disabledProjectType.some((item) => item.value === results.projectType)) {
-          p.log.error(c.red(`${PROJECT_TYPE.find((item) => item.value === results.projectType)!.label.replace(UN_DEV, '')} 目前暂不支持`));
-          process.exit(1);
-        }
-        return p.confirm({
-          message: '是否需要 stylelint 配置？',
-          initialValue: false,
-        });
-      },
-      enableMarkdownlint: () => p.confirm({
-        message: '是否需要 markdownlint 配置？',
-        initialValue: false,
-      }),
+      /*
+       * enableStylelint: ({ results }) => {
+       *   if (disabledProjectType.some((item) => item.value === results.projectType)) {
+       *     p.log.error(c.red(`${PROJECT_TYPE.find((item) => item.value === results.projectType)!
+       * .label.replace(UN_DEV, '')} 目前暂不支持`));
+       *     process.exit(1);
+       *   }
+       *   return p.confirm({
+       *     message: '是否需要 stylelint 配置？',
+       *     initialValue: false,
+       *   });
+       * },
+       * enableMarkdownlint: () => p.confirm({
+       *   message: '是否需要 markdownlint 配置？',
+       *   initialValue: false,
+       * }),
+       */
       enableCommitlint: () => p.confirm({
         message: '是否启用 git commit 自动修复？',
         initialValue: false,

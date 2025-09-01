@@ -6,6 +6,7 @@ import { PKG_VERSION } from './constants';
 import { run } from './run';
 
 const header = ():void => {
+  // eslint-disable-next-line no-console
   console.log('\n');
   p.intro(`${c.green`hkx-eslint-config `}${c.dim`v${PKG_VERSION}`}`);
 };

@@ -1,2 +1,4 @@
 packages:
   - 'packages/lint/*'
+  - 'components/*'
+  - 'examples/*'

@@ -1,5 +1,5 @@
-import { PromptResult } from '../types';
+// import { PromptResult } from '../types';
 
-export default async (result: PromptResult) => {
-  /** TODO */
-};
+// export default async (result: PromptResult) => {
+//   /** TODO */
+// };
