@@ -1,6 +1,5 @@
 module.exports = {
   defaultSeverity: 'warning',
-  plugins: ['stylelint-scss'],
   rules: {
     // 不允许未知的 @规则
     'at-rule-no-unknown': null,
@@ -74,9 +73,6 @@ module.exports = {
     ],
     // 限制选择器中ID选择器的数量
     'selector-max-id': 0,
-
-    'scss/at-rule-no-unknown': true,
-    'scss/double-slash-comment-whitespace-inside': 'always',
   },
   ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
 };
