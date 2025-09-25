@@ -1,6 +1,6 @@
 {
   "name": "hkx-lint-tool",
-  "version": "1.4.1",
+  "version": "1.5.0-alpha.0",
   "description": "HKX 代码规范工具",
   "type": "module",
   "keywords": [
