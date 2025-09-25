@@ -81,7 +81,8 @@ export const VSCODE_SETTING_CONTENT = `
   // Auto fix
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
+    "source.organizeImports": "never",
+    "source.fixAll.stylelint": "explicit"
   },
 
   // Silent the stylistic rules in you IDE, but still auto fix them
@@ -121,6 +122,14 @@ export const VSCODE_SETTING_CONTENT = `
     "less",
     "scss",
     "pcss",
+    "postcss"
+  ],
+
+  "stylelint.validate": [
+    "css",
+    "vue",
+    "less",
+    "scss",
     "postcss"
   ]
 `;
