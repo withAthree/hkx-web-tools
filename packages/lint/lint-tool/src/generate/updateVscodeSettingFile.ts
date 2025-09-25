@@ -27,5 +27,5 @@ export default async (result: PromptResult): Promise<void> => {
 
   fs.writeFile(settingsPath, vscodeSettingContent, 'utf-8');
 
-  p.log.success(c.green`.vscode/settings.json 已更新！`);
+  p.log.success(c.green`.vscode/settings.json updated!`);
 };

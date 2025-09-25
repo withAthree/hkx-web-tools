@@ -44,5 +44,8 @@
     "cac": "^6.7.14",
     "fs-extra": "^11.3.1",
     "parse-gitignore": "^2.0.0"
+  },
+  "devDependencies": {
+    "stylelint": "^16.1.0"
   }
 }

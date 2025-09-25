@@ -14,14 +14,14 @@ const header = ():void => {
 const cli = cac('hkx-eslint-config');
 
 cli
-  .command('', '运行初始化')
-  .option('--yes, -y', '跳过确认步骤使用默认设置', { default: false })
+  .command('', 'Execute initialization')
+  .option('--yes, -y', 'Skip the confirmation step and use the default settings.', { default: false })
   .action(async (options) => {
     header();
     try {
       await run(options);
     } catch (error) {
-      p.log.error(c.inverse.red(' 运行失败 '));
+      p.log.error(c.inverse.red(' Initialization failed '));
       p.log.error(c.red`✘ ${String(error)}`);
       process.exit(1);
     }

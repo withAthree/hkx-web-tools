@@ -27,6 +27,16 @@ export default async (result: PromptResult): Promise<void> => {
   if (result.enableStylelint) {
     pkg.devDependencies['hkx-stylelint-config'] ??= `^${await getPackageVersion('hkx-stylelint-config')}`;
     pkg.devDependencies.stylelint ??= VERSION_MAP.stylelint;
+
+    const isVue = result.projectType.includes('vue');
+    const ext = isVue ? '{css,vue}' : 'css';
+
+    if (isVue) {
+      pkg.devDependencies['postcss-html'] ??= VERSION_MAP['postcss-html'];
+    }
+
+    pkg.scripts['lint:style'] ??= `stylelint "**/*.${ext}"`;
+    pkg.scripts['lint:style:fix'] ??= `stylelint "**/*.${ext}" --fix`;
   }
 
   // 处理 markdownlint 相关
@@ -74,5 +84,5 @@ export default async (result: PromptResult): Promise<void> => {
 
   await fs.writeFile(pathPkgJson, JSON.stringify(pkg, null, 2));
 
-  p.log.success(c.green`更改已写入 package.json ！`);
+  p.log.success(c.green`package.json updated!`);
 };

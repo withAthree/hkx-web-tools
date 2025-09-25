@@ -6,12 +6,12 @@ import c from 'ansis';
 
 import { CliRunOptions, ProjectType, PromptResult } from './types';
 
-// , UN_DEV
-import { PROJECT_TYPE } from './constants';
+// UN_DEV
+import { PROJECT_TYPE, UN_DEV } from './constants';
 import updateEslintFile from './generate/updateEslintFile';
-import updateMarkdownlintFile from './generate/updateMarkdownlintFile';
 import updatePackageJsonFile from './generate/updatePackageJsonFile';
 import updateVscodeSettingFile from './generate/updateVscodeSettingFile';
+import updateStylelintFile from './generate/updateStylelintFile';
 
 const configFiles = ['eslint.config.js', 'eslint.config.ts', 'eslint.config.mjs', 'eslint.config.mts'];
 
@@ -21,7 +21,7 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
   const existingConfig = configFiles.find((file) => fs.existsSync(path.join(process.cwd(), file)));
 
   if (existingConfig) {
-    p.log.warn(c.yellow`${existingConfig} 已经存在，请删除后重试！`);
+    p.log.warn(c.yellow`${existingConfig} already exists. Please delete it and try again!`);
     return process.exit(1);
   }
 
@@ -33,57 +33,59 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
     updateVscodeSetting: true,
   };
 
-  // const disabledProjectType = PROJECT_TYPE.filter((item) => item.label.includes('未开发'));
+  const disabledProjectType = PROJECT_TYPE.filter((item) => item.label.includes('Under development'));
 
   if (!argSkipPrompt) {
     result = await p.group({
       projectType: () => p.select<ProjectType>({
-        message: '请选择项目类型：',
+        message: 'Please select the project type:',
         options: PROJECT_TYPE.map(({ label, value }) => ({ label, value })),
       }),
+
+      enableStylelint: ({ results }) => {
+        if (disabledProjectType.some((item) => item.value === results.projectType)) {
+          p.log.error(c.red(`${PROJECT_TYPE.find((item) => item.value === results.projectType)!
+            .label.replace(UN_DEV, '')} is not supported currently.`));
+          process.exit(1);
+        }
+        return p.confirm({
+          message: 'Do you need stylelint?',
+          initialValue: false,
+        });
+      },
       /*
-       * enableStylelint: ({ results }) => {
-       *   if (disabledProjectType.some((item) => item.value === results.projectType)) {
-       *     p.log.error(c.red(`${PROJECT_TYPE.find((item) => item.value === results.projectType)!
-       * .label.replace(UN_DEV, '')} 目前暂不支持`));
-       *     process.exit(1);
-       *   }
-       *   return p.confirm({
-       *     message: '是否需要 stylelint 配置？',
-       *     initialValue: false,
-       *   });
-       * },
        * enableMarkdownlint: () => p.confirm({
        *   message: '是否需要 markdownlint 配置？',
        *   initialValue: false,
        * }),
        */
+
       enableCommitlint: () => p.confirm({
-        message: '是否启用 git commit 自动修复？',
+        message: 'Do you need commitlint?',
         initialValue: false,
       }),
       updateVscodeSetting: () => p.confirm({
-        message: '是否更新 vscode 设置？',
+        message: 'Do you need to update vscode settings?',
         initialValue: true,
       }),
     }, {
       onCancel: () => {
-        p.cancel('操作已取消！');
+        p.cancel('Operation cancelled!');
         process.exit(0);
       },
     }) as PromptResult;
   }
 
   await updateEslintFile(result);
-  await updateMarkdownlintFile(result);
+  await updateStylelintFile(result);
   await updatePackageJsonFile(result);
   await updateVscodeSettingFile(result);
 
-  p.log.success(c.green`操作完成！`);
+  p.log.success(c.green`Operation completed!`);
 
-  let msg = `现在可以通过运行 ${c.blue('pnpm install')} 更新依赖！`;
+  let msg = `Now you can run ${c.blue('pnpm install')} to update dependencies!`;
   if (result.enableCommitlint) {
-    msg = `${msg}并运行 ${c.blue('npx simple-git-hooks')} 初始化 git 钩子！`;
+    msg = `${msg} And run ${c.blue('npx simple-git-hooks')} to initialize git hooks!`;
   }
   p.outro(msg);
 };

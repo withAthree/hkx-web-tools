@@ -19,5 +19,5 @@ export default async (result: PromptResult): Promise<void> => {
 
   fs.writeFile(configPath, MARKDOWNLINT_CONFIG, 'utf-8');
 
-  p.log.success(c.green`.markdownlint.json 已更新！`);
+  p.log.success(c.green`.markdownlint.json updated!`);
 };

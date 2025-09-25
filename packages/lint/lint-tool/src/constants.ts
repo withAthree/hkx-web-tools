@@ -15,7 +15,7 @@ export enum UNICODE {
   failure = '\u2716',
 }
 
-export const UN_DEV = '(未开发)';
+export const UN_DEV = '(Under development)';
 
 /**
  * 包名
@@ -70,6 +70,7 @@ export const VERSION_MAP = {
   'simple-git-hooks': '^2.13.1',
   'lint-staged': '^16.1.5',
   markdownlint: '^0.38.0',
+  'postcss-html': '^1.8.0',
 };
 
 export const VSCODE_SETTING_CONTENT = `
