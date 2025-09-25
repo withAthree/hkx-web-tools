@@ -1,4 +1,5 @@
 # hkx-web-tools
+
 前端工具集合
 
 ## Project setup
@@ -10,7 +11,7 @@
 ## Windows please run
 
 ```bash
-  git config --global core.autocrlf true
+  git config --global core.autocrlf input
 ```
 
 ## git-hooks
@@ -24,4 +25,3 @@
 ```bash
   npx @eslint/config-inspector
 ```
-
