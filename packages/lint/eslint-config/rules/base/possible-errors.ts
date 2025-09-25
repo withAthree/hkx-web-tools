@@ -26,7 +26,7 @@ export default [
       'no-cond-assign': ['error', 'always'],
 
       // 生产环境禁止使用 console
-      'no-console': 'error',
+      'no-console': ['error', { allow: ['warn', 'error'] }],
 
       // 禁止在条件中使用常量表达式
       'no-constant-condition': 'warn',
