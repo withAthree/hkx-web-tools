@@ -29,7 +29,8 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
     projectType: 'index',
     enableStylelint: false,
     enableMarkdownlint: false,
-    enableCommitlint: false,
+    enableCommitlint: true,
+    enableExtraFormatter: true,
     updateVscodeSetting: true,
   };
 
@@ -62,7 +63,11 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
 
       enableCommitlint: () => p.confirm({
         message: 'Do you need commitlint?',
-        initialValue: false,
+        initialValue: true,
+      }),
+      enableExtraFormatter: () => p.confirm({
+        message: 'Do you need extra formatter(prettier)?',
+        initialValue: true,
       }),
       updateVscodeSetting: () => p.confirm({
         message: 'Do you need to update vscode settings?',

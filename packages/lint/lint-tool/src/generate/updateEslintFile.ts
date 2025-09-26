@@ -12,7 +12,7 @@ import { PromptResult } from '../types';
 export default async (result: PromptResult): Promise<void> => {
   const cwd = process.cwd();
 
-  const { projectType } = result;
+  const { projectType, enableExtraFormatter } = result;
 
   const pathESLintIgnore = path.join(cwd, '.eslintignore');
   const pathPkgJson = path.join(cwd, 'package.json');
@@ -45,7 +45,7 @@ export default async (result: PromptResult): Promise<void> => {
     configLines = `ignores: ${JSON.stringify(eslintIgnores)},`;
   }
 
-  const eslintConfigContent = getEslintConfigContent(projectType, configLines);
+  const eslintConfigContent = getEslintConfigContent(projectType, configLines, enableExtraFormatter);
   await fs.writeFile(pathFlatConfig, eslintConfigContent);
   p.log.success(c.green`${configFileName} created!`);
 

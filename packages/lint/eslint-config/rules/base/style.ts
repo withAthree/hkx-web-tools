@@ -146,10 +146,10 @@ export default [
       // 要求在注释周围有空行 fix
       '@stylistic/lines-around-comment': 'off',
 
-      // 单行最大字符数：100 fix
+      // 单行最大字符数：120 fix
       '@stylistic/max-len': [
         'warn',
-        100,
+        120,
         2,
         {
           ignoreUrls: true,

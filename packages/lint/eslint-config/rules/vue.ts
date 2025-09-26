@@ -7,29 +7,18 @@ export default [
     plugins: {
       vue: pluginVue,
     },
-    languageOptions: {
-      sourceType: 'module',
-    },
   },
   {
     name: 'rules/vue/base/setup-for-vue',
-    plugins: {
-      vue: pluginVue,
-    },
     files: ['*.vue', '**/*.vue'],
     languageOptions: {
       parser: parserVue,
       sourceType: 'module',
     },
+    processor: 'vue/vue',
     rules: {
       'vue/comment-directive': 'error',
       'vue/jsx-uses-vars': 'error',
-    },
-    processor: 'vue/vue',
-  },
-  {
-    name: 'rules/vue',
-    rules: {
       // 组件的 data 必须是一个函数 fix
       'vue/no-shared-component-data': 'error',
 
