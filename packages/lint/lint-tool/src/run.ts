@@ -83,7 +83,7 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
 
   p.log.success(c.green`Operation completed!`);
 
-  p.log.info(c.gray`Perhaps you need some additional plugins, please run ${c.blue('pnpm add -D jiti eslint-import-resolver-alias')}.`);
+  // p.log.info(c.gray`Perhaps you need some additional plugins, please run ${c.blue('pnpm add -D jiti eslint-import-resolver-alias')}.`);
 
   let msg = `Now you can run ${c.blue('pnpm install')} to update dependencies!`;
   if (result.enableCommitlint) {
