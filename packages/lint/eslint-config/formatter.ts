@@ -1,6 +1,8 @@
 
 import format from 'eslint-plugin-format';
 
+import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
+
 const options = {
   printWidth: 120,
   tabWidth: 2,
@@ -75,4 +77,4 @@ export default [
       'format/prettier': ['error', mergeOptions({ parser: 'less' })],
     },
   },
-];
+] as ConfigWithExtendsArray;
