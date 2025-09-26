@@ -11,12 +11,19 @@ export default [
         'node_modules',
         '\\.(coffee|scss|css|less|hbs|svg|json)$',
       ],
+      'import/resolver': {
+        alias: {
+          map: [
+            ['@', './src'],
+          ],
+          extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json'],
+        },
+      },
     },
     rules: {
       /**
        * 静态分析
        */
-
       // 确保导入指向可以解析的文件/模块
       'import/no-unresolved': 'error',
 

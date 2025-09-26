@@ -1,14 +1,11 @@
 <script setup lang="jsx">
-const get = () => {
-  return <div>123</div>
-}
-// type TEST = {}
-const a = new Promise(async () => { })
+import a from '@/abc';
+
+console.error(a);
 </script>
 
 <template>
   <div>
-    <div v-for="item in 10">{{ a.aa }}</div>
   </div>
 </template>
 
