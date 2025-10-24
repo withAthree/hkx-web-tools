@@ -124,7 +124,7 @@ export default [
           nestedBinaryExpressions: false,
           returnAssign: false,
           ignoreJSX: 'all',
-          enforceForArrowConditionals: false,
+          enforceForArrowConditionals: ['ArrowFunctionExpression[body.type=ConditionalExpression'],
         },
       ],
 

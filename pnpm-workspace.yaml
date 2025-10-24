@@ -1,4 +1,4 @@
 packages:
   - 'packages/lint/*'
-  - 'components/*'
+  - 'packages/naive-ui/*'
   - 'examples/*'
