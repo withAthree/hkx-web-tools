@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "HKX Naive UI 封装",
   "type": "module",
+  "private": true,
   "keywords": [
     "naive-ui",
     "hkx",
