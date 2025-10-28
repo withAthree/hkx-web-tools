@@ -22,7 +22,11 @@ export default async (result: PromptResult): Promise<void> => {
 
   let vscodeSettingContent = fs.readFileSync(settingsPath, 'utf-8');
   vscodeSettingContent = vscodeSettingContent.trim().replace(/\s*\}$/, '');
-  vscodeSettingContent += vscodeSettingContent.endsWith(',') || vscodeSettingContent.endsWith('{') ? '' : ',';
+  if (vscodeSettingContent) {
+    vscodeSettingContent += vscodeSettingContent.endsWith(',') || vscodeSettingContent.endsWith('{') ? '' : ',';
+  } else {
+    vscodeSettingContent += '{';
+  }
   vscodeSettingContent += `${VSCODE_SETTING_CONTENT}}\n`;
 
   fs.writeFile(settingsPath, vscodeSettingContent, 'utf-8');

@@ -10,7 +10,7 @@ export default defineConfig({
     'typescript/node': './typescript/node.ts',
     formatter: './formatter.ts',
   },
-  dts: false,
+  dts: true,
   shims: true,
   format: ['esm'],
 });
