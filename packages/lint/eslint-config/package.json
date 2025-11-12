@@ -1,6 +1,6 @@
 {
   "name": "hkx-eslint-config",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "HKX 代码规范",
   "type": "module",
   "keywords": [
