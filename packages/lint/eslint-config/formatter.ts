@@ -4,7 +4,7 @@ import format from 'eslint-plugin-format';
 import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
 
 const options = {
-  printWidth: 120,
+  printWidth: 200,
   tabWidth: 2,
   useTabs: false,
   semi: true,
