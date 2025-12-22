@@ -1,31 +1,31 @@
-import { PromptResult } from '../types';
-
-// @ts-expect-error missing types
-import fs from 'fs-extra';
 import path from 'node:path';
-import * as p from '@clack/prompts';
-import c from 'ansis';
-
 import type { Config } from 'stylelint';
 
-export default async (result: PromptResult) => {
-  const cwd = process.cwd();
+import { PromptResult } from '../types';
+import { writeFileSafe, isVueProject } from '../utils';
 
+/**
+ * 生成 Stylelint 配置文件
+ * @param result 用户选择的配置选项
+ */
+export default async (result: PromptResult): Promise<void> => {
   const { projectType, enableStylelint } = result;
 
   if (!enableStylelint) {
-    return undefined;
+    return;
   }
 
+  const cwd = process.cwd();
   const configFileName = '.stylelintrc.mjs';
-
   const pathConfig = path.join(cwd, configFileName);
 
+  // 构建 stylelint 配置
   const config: Config = {
     extends: ['hkx-stylelint-config'],
   };
 
-  if (projectType.includes('vue')) {
+  // 如果是 Vue 项目，添加 Vue 文件的支持配置
+  if (isVueProject(projectType)) {
     config.overrides = [
       {
         files: ['**/*.vue'],
@@ -34,6 +34,9 @@ export default async (result: PromptResult) => {
     ];
   }
 
-  await fs.writeFile(pathConfig, `export default ${JSON.stringify(config, null, 2)}`);
-  p.log.success(c.green`${configFileName} created!`);
+  // 生成配置文件内容（ESM 格式）
+  const configContent = `export default ${JSON.stringify(config, null, 2)};\n`;
+
+  // 写入配置文件
+  await writeFileSafe(pathConfig, configContent, configFileName);
 };
