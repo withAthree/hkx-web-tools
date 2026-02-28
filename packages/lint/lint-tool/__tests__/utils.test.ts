@@ -10,50 +10,34 @@ vi.mock('child_process', () => ({
 describe('utils', () => {
     describe('getEslintConfigContent', () => {
         it('应该生成基础的 JavaScript 配置', () => {
-            const result = getEslintConfigContent('index', null, false);
+            const result = getEslintConfigContent('index', null);
 
             expect(result).toContain("import { defineConfig } from 'eslint/config'");
             expect(result).toContain("import eslintConfig from 'hkx-eslint-config'");
             expect(result).toContain('export default defineConfig([');
             expect(result).toContain('...eslintConfig');
-            expect(result).not.toContain('formatter');
         });
 
         it('应该生成带 TypeScript 的配置', () => {
-            const result = getEslintConfigContent('typescript', null, false);
+            const result = getEslintConfigContent('typescript', null);
 
             expect(result).toContain("import eslintConfig from 'hkx-eslint-config/typescript'");
         });
 
         it('应该生成带 Vue + TypeScript 的配置', () => {
-            const result = getEslintConfigContent('typescript/vue', null, false);
+            const result = getEslintConfigContent('typescript/vue', null);
 
             expect(result).toContain("import eslintConfig from 'hkx-eslint-config/typescript/vue'");
         });
 
         it('应该包含 ignores 配置', () => {
             const ignores = 'ignores: ["dist", "node_modules"]';
-            const result = getEslintConfigContent('index', ignores, false);
+            const result = getEslintConfigContent('index', ignores);
 
             expect(result).toContain(ignores);
             expect(result).toMatch(/\[\s*\.\.\.eslintConfig,\s*\{\s*ignores:/);
         });
 
-        it('应该包含 formatter 配置', () => {
-            const result = getEslintConfigContent('index', null, true);
-
-            expect(result).toContain("import formatter from 'hkx-eslint-config/formatter'");
-            expect(result).toContain('...formatter');
-        });
-
-        it('应该同时包含 ignores 和 formatter', () => {
-            const ignores = 'ignores: ["dist"]';
-            const result = getEslintConfigContent('typescript', ignores, true);
-
-            expect(result).toContain("import formatter from 'hkx-eslint-config/formatter'");
-            expect(result).toContain(ignores);
-            expect(result).toContain('...formatter');
-        });
     });
 
     describe('getPackageVersion', () => {

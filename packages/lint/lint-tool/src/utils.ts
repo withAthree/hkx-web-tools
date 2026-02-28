@@ -207,15 +207,13 @@ export function getConfigFileExtension(
  * 生成 ESLint 配置文件内容
  * @param projectType 项目类型
  * @param ignores 忽略配置
- * @param extraFormatter 是否启用额外的格式化工具
  * @returns ESLint 配置文件内容
  */
-export const getEslintConfigContent = (projectType: string, ignores: string | null, extraFormatter: boolean): string => `import { defineConfig } from 'eslint/config';
+export const getEslintConfigContent = (projectType: string, ignores: string | null): string => `import { defineConfig } from 'eslint/config';
 import eslintConfig from 'hkx-eslint-config${projectType.includes('index') ? '' : '/'}${projectType.replace('index', '')}'
-${extraFormatter ? "import formatter from 'hkx-eslint-config/formatter';" : ''}
 
 export default defineConfig([
-  ...eslintConfig${ignores ? `,\n  { ${ignores} }` : ''}${extraFormatter ? ',\n  ...formatter' : ''}
+  ...eslintConfig${ignores ? `,\n  { ${ignores} }` : ''}
 ])
 `;
 
@@ -262,6 +260,7 @@ export const getPackageVersion = async (packageName: string): Promise<string> =>
     /**
      * 其他错误（如命令执行失败）
      */
+    // eslint-disable-next-line no-console
     console.error(`[获取包版本] 错误: 无法获取 ${packageName} 的版本号`, error);
     throw new Error(`Failed to get version for package: ${packageName}`);
   }

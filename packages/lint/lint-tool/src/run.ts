@@ -29,7 +29,6 @@ const DEFAULT_CONFIG: PromptResult = {
   enableStylelint: false,
   enableMarkdownlint: false,
   enableCommitlint: true,
-  enableExtraFormatter: true,
   updateVscodeSetting: true,
 };
 
@@ -119,10 +118,6 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
 
         enableCommitlint: () => p.confirm({
           message: 'Do you need commitlint?',
-          initialValue: true,
-        }),
-        enableExtraFormatter: () => p.confirm({
-          message: 'Do you need extra formatter(prettier)?',
           initialValue: true,
         }),
         updateVscodeSetting: () => p.confirm({

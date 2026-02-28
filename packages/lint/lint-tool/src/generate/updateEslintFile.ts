@@ -21,7 +21,7 @@ import { PromptResult } from '../types';
  */
 export default async (result: PromptResult): Promise<void> => {
   const cwd = process.cwd();
-  const { projectType, enableExtraFormatter } = result;
+  const { projectType } = result;
 
   // 读取并解析 package.json
   const pkg = await readPackageJson(cwd);
@@ -59,7 +59,7 @@ export default async (result: PromptResult): Promise<void> => {
     configLines = `ignores: ${JSON.stringify(eslintIgnores)},`;
   }
 
-  const eslintConfigContent = getEslintConfigContent(projectType, configLines, enableExtraFormatter);
+  const eslintConfigContent = getEslintConfigContent(projectType, configLines);
 
   // 写入配置文件
   await writeFileSafe(pathFlatConfig, eslintConfigContent, configFileName);

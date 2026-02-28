@@ -11,6 +11,5 @@ export interface PromptResult {
   enableStylelint: boolean
   enableMarkdownlint: boolean
   enableCommitlint: boolean
-  enableExtraFormatter: boolean
   updateVscodeSetting: boolean
 }
