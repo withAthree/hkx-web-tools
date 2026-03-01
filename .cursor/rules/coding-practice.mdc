@@ -1,0 +1,50 @@
+---
+description: General coding standards to all files.
+alwaysApply: true
+---
+
+# Coding Practice
+
+## Code Organization
+
+- **Single responsibility**: Each source file should have a clear, focused scope/purpose
+- **Split large files**: Break files when they become large or handle too many concerns
+- **Constants extraction**: Move constants to a dedicated constants.ts file
+
+## Coding Standards
+
+- **Related code is closely linked**: Functions, variables, or classes should be placed as close as possible to where they are needed, and kept away from unrelated code
+- **Know when to use blank lines**: Use blank lines when the current logic has concluded and a new section begins, making the code structure more distinct
+- **Avoid overly complex ternary expressions**: Avoid using overly complex ternary expressions, this makes the code clearer and easier to understand
+- **Single Responsibility of a Function**: A function should either modify parameters or return data, but not both
+- **Avoid magic numbers**:
+
+```javascript
+// Bad
+const area = 50 * 60
+
+// Good
+const width = 50
+const height = 60
+const area = width * height
+```
+
+- **Avoid unnecessary temporary variables**:
+
+```javascript
+// Bad
+const tempResult = calculate(x, y)
+const finalResult = tempResult * 2
+
+// Good
+const finalResult = calculate(x, y) * 2
+```
+
+- Focus on simplicity, readability, performance, maintainability, testability, and reusability
+- Remember less code is better
+- Lines of code = Debt
+
+## Comments
+
+- **Avoid unnecessary comments**: Code should be self-explanatory
+- **Explain "why" not "how"**: Comments should describe the reasoning or intent, not what the code does

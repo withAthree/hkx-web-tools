@@ -1,0 +1,103 @@
+---
+globs: **/*.js, **/*.jsx, **/*.ts, **/*.tsx
+alwaysApply: false
+---
+
+# JavaScript Best Practices
+
+You are an expert JavaScript & TypeScript developer who writes clean, maintainable code that I am not going to regret later and follows strict linting rules.
+
+## Coding Practices
+
+- **Declare Variables**: Use `const` for all variables that aren't reassigned, `let` otherwise
+- **Comparisons**: Always use `===` for comparisons and avoid using `==`
+- **​Concatenate Strings**: Template strings should be used instead of the plus operator​ for dynamic string construction
+
+```typescript
+// Bad
+const message = "Hello, " + userName + "! You have " + items.length + " items.";  
+
+// Good
+const message = `Hello, ${userName}! You have ${items.length} items.`;
+```
+
+- **Nullish Coalescing**: Use the nullish coalescing operator `??` instead of `||` when resolving default values
+- **Optional Chaining**: The optional chaining operator `?.` simplifies this process by automatically checking if a property or method exists before attempting to access it
+- **Async/Await**: Use `async` and `await` to make your asynchronous code look more like regular, synchronous code. This improves readability and makes error handling easier with `try...catch`
+- Don't use `await` in return statements (return the Promise directly)
+- **Interaction With Object Keys and Values**:  Use modern methods such as `Object.entries()`, `Object.values()`, and `Object.keys()` for working with object keys and values
+- **Check the Array Type of a Variable**: Use the modern `Array.isArray()` method, which provides a simple and reliable way to check whether a variable is an array
+- **Map**: Use `Map` when you need to map non-primitive objects or when a more robust data structure is required
+- **Symbols for Hidden Values**: Use `Symbol` when you want to add non-enumerable, hidden properties to an object
+- **Explicitly Handle Expressions in `if` Statements**: It's a good practice to make the conditions in if statements explicit, especially when the values you're working with might not behave as expected in a truthy/falsy evaluation
+
+```javascript
+// Bad
+// For instance, instead of relying on implicit type coercion:
+const value = 0;
+
+// Implicit check (may behave unexpectedly for some values)
+if (value) {
+  console.log('This won't run');
+}
+
+// Good
+// Explicitly check for the type or value you expect
+if (value !== 0) {
+  console.log('This will run only if value is not 0.');
+}
+
+// Or, when checking for null or undefined:
+const name = null;
+
+if (name != null) { // Explicitly checking for null or undefined
+  console.log('Name is defined');
+} else {
+  console.log('Name is null or undefined');
+}
+```
+
+- **Be Careful With JSON**: To avoid this precision issue when dealing with large numbers from JSON data, you can use the `reviver` parameter of `JSON.parse()`
+
+```javascript
+console.log(
+  JSON.parse(
+    '{"id": 9007199254740999}',
+    (key, value, ctx) => {
+      if (key === 'id') {
+        return ctx.source; // Preserve the original value as a string
+      }
+      return value;
+    }
+  )
+); 
+// Output: { id: '9007199254740999' }
+```
+
+- **Be Careful With BigInt**: `BigInt` cannot be directly serialized to JSON
+
+## Runtime Environment
+
+- **Prefer isomorphic code**: Write runtime-agnostic code that works in Node, browser, and workers whenever possible
+- **Clear runtime indicators**: When code is environment-specific, add a comment at the top of the file:
+
+```typescript
+// @env node
+// @env browser
+```
+
+- Prefer object spread (e.g. `{ ...args }`) over `Object.assign`
+- Use rest parameters instead of `arguments` object
+- Always use curly braces for control structures, even for single-line blocks
+
+## Import Organization
+
+- Keep imports at the top of the file
+- Group imports in this order: `built-in → external → internal → parent → sibling → index → object → type`
+- Add blank lines between import groups
+- Sort imports alphabetically within each group
+- Avoid duplicate imports
+- Avoid circular dependencies
+- Ensure member imports are sorted (e.g., `import { A, B, C } from 'module'`)
+
+**Keep in Mind**: The code should adhere to modern ECMAScript standards.

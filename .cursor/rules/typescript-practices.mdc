@@ -1,0 +1,122 @@
+---
+globs: **/*.ts, **/*.tsx
+alwaysApply: false
+---
+
+# TypeScript Best Practices
+
+You are an expert TypeScript developer who understands that type assertions (using `as`) only provide compile-time safety without runtime validation.
+
+## Type Safety & Configuration
+
+- **Enable `strict: true`**:
+  - `noImplicitAny: true`
+  - `strictNullChecks: true`
+  - `strictFunctionTypes: true`
+  - `strictBindCallApply: true`
+  - `strictPropertyInitialization: true`
+  - `noImplicitThis: true`
+  - `alwaysStrict: true`
+  - `exactOptionalPropertyTypes: true`
+- Never use `// @ts-ignore` or `// @ts-expect-error` without explanatory comments
+- Use `--noEmitOnError` compiler flag to prevent generating JS files when TypeScript errors exist
+
+## Type Definitions
+
+- Do not ever use `any`. Ever. If you feel like you have to use `any`, use `unknown` instead.
+- Explicitly type function parameters, return types, and object literals.
+- Please don't ever use Enums. Use a union if you feel tempted to use an Enum.
+- Use `readonly` modifiers for immutable properties and arrays
+- Leverage TypeScript's utility types (`Partial`, `Required`, `Pick`, `Omit`, `Record`, etc.)
+- Use discriminated unions with exhaustiveness checking for type narrowing
+
+## Advanced Patterns
+
+- Implement proper generics with appropriate constraints
+- Use mapped types and conditional types to reduce type duplication
+- Leverage `const` assertions for literal types
+- Implement branded/nominal types for type-level validation
+
+## Code Organization
+
+- Organize types in dedicated files (types.ts) or alongside implementations
+- Document complex types with JSDoc comments
+- Create a central `types.ts` file or a `src/types/*.ts` directory for shared types
+
+## Type Validation With Zod
+
+### Zod Over Type Assertions
+
+- **NEVER** use type assertions (with `as`) for external data sources, API responses, or user inputs
+- **ALWAYS** use Zod schemas to validate and parse data from external sources
+- Implement proper error handling for validation failures
+
+### Zod Implementation Patterns
+
+- Import zod with: `import { z } from 'zod'`
+- Define schemas near related types or in dedicated schema files
+- Use `schema.parse()` for throwing validation behavior
+- Use `schema.safeParse()` for non-throwing validation with detailed errors
+- Add meaningful error messages with `.refine()` and `.superRefine()`
+- Set up default values with `.default()` when appropriate
+- Use transformations with `.transform()` to convert data formats
+- Always handle potential validation errors
+
+```typescript
+// Bad: Using type assertions
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  age: number;
+}
+
+const fetchUser = async (id: string): Promise<User> => {
+  const response = await fetch(`/api/users/${id}`);
+  const data = await response.json();
+  return data as User; // DANGEROUS: No runtime validation!
+};
+```
+
+```typescript
+// Good: Using Zod for validation
+import { z } from 'zod';
+
+// Define the schema
+const UserSchema = z.object({
+  id: z.string().uuid(),
+  name: z.string().min(1),
+  email: z.string().email(),
+  age: z.number().int().positive().min(13),
+});
+
+// Derive the type from the schema
+type User = z.infer<typeof UserSchema>;
+
+const fetchUser = async (id: string): Promise<User> => {
+  const response = await fetch(`/api/users/${id}`);
+  const data = await response.json();
+
+  // Runtime validation
+  return UserSchema.parse(data);
+};
+
+// With error handling
+const fetchUserSafe = async (id: string): Promise<User | null> => {
+  try {
+    const response = await fetch(`/api/users/${id}`);
+    const data = await response.json();
+
+    const result = UserSchema.safeParse(data);
+    if (!result.success) {
+      console.error('Invalid user data:', result.error.format());
+      return null;
+    }
+
+    return result.data;
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    return null;
+  }
+};
+```
