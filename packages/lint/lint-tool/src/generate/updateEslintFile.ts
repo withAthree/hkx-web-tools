@@ -59,7 +59,7 @@ export default async (result: PromptResult): Promise<void> => {
     configLines = `ignores: ${JSON.stringify(eslintIgnores)},`;
   }
 
-  const eslintConfigContent = getEslintConfigContent(projectType, configLines);
+  const eslintConfigContent = getEslintConfigContent(projectType, configLines, result.enablePrettier);
 
   // 写入配置文件
   await writeFileSafe(pathFlatConfig, eslintConfigContent, configFileName);

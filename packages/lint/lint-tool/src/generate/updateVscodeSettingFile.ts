@@ -55,6 +55,11 @@ export default async (result: PromptResult): Promise<void> => {
 
     // 合并设置（新设置会覆盖现有设置）
     const mergedSettings = mergeJson(existingSettings, newSettings);
+    if (result.enablePrettier) {
+      mergedSettings['prettier.enable'] = true;
+      mergedSettings['editor.formatOnSave'] = true;
+      mergedSettings['editor.defaultFormatter'] = 'esbenp.prettier-vscode';
+    }
 
     // 写入合并后的设置
     const mergedContent = `${JSON.stringify(mergedSettings, null, 2)}\n`;

@@ -8,7 +8,6 @@ export default defineConfig({
     'typescript/index': './typescript/index.ts',
     'typescript/vue': './typescript/vue.ts',
     'typescript/node': './typescript/node.ts',
-    formatter: './formatter.ts',
   },
   dts: true,
   shims: true,

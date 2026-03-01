@@ -17,7 +17,7 @@ interface PackageJson {
   'simple-git-hooks'?: {
     'pre-commit': string;
   };
-  'lint-staged'?: Record<string, string>;
+  'lint-staged'?: Record<string, string | string[]>;
   [key: string]: unknown;
 }
 
@@ -69,8 +69,17 @@ export default async (result: PromptResult): Promise<void> => {
     }
   }
   pkg.devDependencies.eslint ??= VERSION_MAP.eslint;
-  pkg.scripts.lint ??= 'eslint';
+  pkg.scripts.lint ??= 'eslint .';
   pkg.scripts['lint:fix'] ??= 'eslint --fix';
+  pkg.scripts['lint:check'] ??= 'eslint . --max-warnings 0';
+
+  if (result.enablePrettier) {
+    pkg.devDependencies.prettier ??= VERSION_MAP.prettier;
+    pkg.devDependencies['eslint-config-prettier'] ??= VERSION_MAP['eslint-config-prettier'];
+    pkg.scripts.prettier ??= 'prettier --write .';
+    pkg.scripts['prettier:check'] ??= 'prettier --check .';
+    pkg.scripts.format ??= 'prettier --write . && eslint . --fix';
+  }
 
   // 处理 Stylelint 相关
   if (result.enableStylelint) {
@@ -91,6 +100,11 @@ export default async (result: PromptResult): Promise<void> => {
 
     pkg.scripts['lint:style'] ??= `stylelint "**/*.${fileExtension}"`;
     pkg.scripts['lint:style:fix'] ??= `stylelint "**/*.${fileExtension}" --fix`;
+
+    if (result.enablePrettier) {
+      pkg.devDependencies['stylelint-config-prettier'] ??= VERSION_MAP['stylelint-config-prettier'];
+      pkg.scripts['stylelint-check'] ??= 'stylelint-config-prettier-check';
+    }
   }
 
   // 处理 markdownlint 相关
@@ -132,9 +146,10 @@ export default async (result: PromptResult): Promise<void> => {
 
     // 生成 lint-staged 配置
     const lintStagedPattern = fileTypes.length === 1 ? `*.${fileTypes[0]}` : `*.{${fileTypes.join(',')}}`;
+    const lintStagedCommands = result.enablePrettier ? ['eslint --fix', 'prettier --write'] : ['eslint --fix'];
 
     pkg['lint-staged'] ??= {
-      [lintStagedPattern]: 'eslint --fix',
+      [lintStagedPattern]: lintStagedCommands,
     };
   }
 

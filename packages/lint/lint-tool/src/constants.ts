@@ -108,10 +108,13 @@ export const PROJECT_TYPE: readonly ProjectTypeOption[] = [
 export const VERSION_MAP: Readonly<Record<string, string>> = {
   eslint: '^9.32.0',
   stylelint: '^16.23.0',
+  prettier: '^3.8.1',
   'simple-git-hooks': '^2.13.1',
   'lint-staged': '^16.1.5',
   markdownlint: '^0.38.0',
   'postcss-html': '^1.8.0',
+  'eslint-config-prettier': '^10.0.1',
+  'stylelint-config-prettier': '^9.0.5',
 } as const;
 
 /**
@@ -182,3 +185,39 @@ export const MARKDOWNLINT_CONFIG = `{
   "extends": "hkx-markdownlint-config"
 }
 `;
+
+/**
+ * Prettier 默认配置（与 eslint-config rules/base/style 对齐）
+ * - singleQuote / semi / tabWidth:2 / printWidth:120 / endOfLine:lf 等
+ */
+export const PRETTIER_RC = JSON.stringify(
+  {
+    singleQuote: true,
+    semi: true,
+    tabWidth: 2,
+    printWidth: 120,
+    endOfLine: 'lf',
+    trailingComma: 'es5',
+    jsxSingleQuote: false,
+    bracketSpacing: true,
+  },
+  null,
+  2,
+);
+
+/**
+ * .prettierignore 默认忽略列表
+ */
+export const PRETTIER_IGNORE_LINES = [
+  'node_modules',
+  'dist',
+  'build',
+  'coverage',
+  '.git',
+  '*.min.js',
+  '*.snap',
+  '*.lock',
+  '*.log',
+  '.DS_Store',
+  'eslint.config.*',
+];

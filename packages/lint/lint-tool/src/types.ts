@@ -9,6 +9,7 @@ export type ProjectType = typeof PROJECT_TYPE[number]['value'];
 export interface PromptResult {
   projectType: ProjectType
   enableStylelint: boolean
+  enablePrettier: boolean
   enableMarkdownlint: boolean
   enableCommitlint: boolean
   updateVscodeSetting: boolean

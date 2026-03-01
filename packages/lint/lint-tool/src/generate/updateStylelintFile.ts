@@ -19,9 +19,12 @@ export default async (result: PromptResult): Promise<void> => {
   const configFileName = '.stylelintrc.mjs';
   const pathConfig = path.join(cwd, configFileName);
 
-  // 构建 stylelint 配置
+  const extendsList = ['hkx-stylelint-config'];
+  if (result.enablePrettier) {
+    extendsList.push('stylelint-config-prettier');
+  }
   const config: Config = {
-    extends: ['hkx-stylelint-config'],
+    extends: extendsList,
   };
 
   // 如果是 Vue 项目，添加 Vue 文件的支持配置

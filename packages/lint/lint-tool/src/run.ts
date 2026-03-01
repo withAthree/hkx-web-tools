@@ -10,6 +10,7 @@ import updateEslintFile from './generate/updateEslintFile';
 import updatePackageJsonFile from './generate/updatePackageJsonFile';
 import updateVscodeSettingFile from './generate/updateVscodeSettingFile';
 import updateStylelintFile from './generate/updateStylelintFile';
+import updatePrettierFile from './generate/updatePrettierFile';
 
 /**
  * ESLint 配置文件名称列表
@@ -27,6 +28,7 @@ const ESLINT_CONFIG_FILES = [
 const DEFAULT_CONFIG: PromptResult = {
   projectType: 'index',
   enableStylelint: false,
+  enablePrettier: false,
   enableMarkdownlint: false,
   enableCommitlint: true,
   updateVscodeSetting: true,
@@ -109,6 +111,10 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
             initialValue: false,
           });
         },
+        enablePrettier: () => p.confirm({
+          message: 'Do you need prettier?',
+          initialValue: false,
+        }),
         /*
          * enableMarkdownlint: () => p.confirm({
          *   message: '是否需要 markdownlint 配置？',
@@ -140,6 +146,7 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
   try {
     await updateEslintFile(result);
     await updateStylelintFile(result);
+    await updatePrettierFile(result);
     await updatePackageJsonFile(result);
     await updateVscodeSettingFile(result);
   } catch (error) {
