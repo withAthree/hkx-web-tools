@@ -20,9 +20,9 @@ export default async (result: PromptResult): Promise<void> => {
   const pathConfig = path.join(cwd, configFileName);
 
   const extendsList = ['hkx-stylelint-config'];
-  if (result.enablePrettier) {
-    extendsList.push('stylelint-config-prettier');
-  }
+  // if (result.enablePrettier) {
+  //   extendsList.push('stylelint-config-prettier');
+  // }
   const config: Config = {
     extends: extendsList,
   };

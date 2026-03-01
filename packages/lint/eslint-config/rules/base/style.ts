@@ -97,10 +97,8 @@ export default [
         },
       ],
 
-      /*
-       * JSX 属性使用双引号，不要使用单引号 fix
-       * @unessential
-       */
+      // JSX 属性使用双引号，不要使用单引号 fix
+      // @unessential
       '@stylistic/jsx-quotes': ['error', 'prefer-double'],
 
       // 定义对象字面量时，key, value 之间有且只有一个空格 fix
@@ -163,8 +161,8 @@ export default [
       // 每一行中所允许的最大语句数量 fix
       '@stylistic/max-statements-per-line': ['warn', { max: 1 }],
 
-      // 多行注释的风格 fix
-      '@stylistic/multiline-comment-style': ['warn', 'starred-block'],
+      // 多行注释使用每行 //，不使用 /* */ 块注释
+      '@stylistic/multiline-comment-style': ['warn', 'separate-lines'],
 
       // 要求或禁止在三元操作数中间换行 fix
       '@stylistic/multiline-ternary': ['error', 'never'],
@@ -271,10 +269,8 @@ export default [
       // 字符串优先使用单引号 fix
       '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
 
-      /*
-       * 使用分号
-       * @unessential
-       */
+      // 使用分号
+      // @unessential
       '@stylistic/semi': ['error', 'always'],
 
       // 分号的前面无空格，后面有空格
@@ -283,10 +279,8 @@ export default [
         { before: false, after: true },
       ],
 
-      /*
-       * 分号必须写在行尾
-       * @unessential
-       */
+      // 分号必须写在行尾
+      // @unessential
       '@stylistic/semi-style': ['error', 'last'],
 
       // 块的左大括号前有一个空格 fix
@@ -380,16 +374,12 @@ export default [
       // 要求标识符匹配一个指定的正则表达式
       'id-match': 'off',
 
-      /*
-       * 控制语句的嵌套层级不要过深，不要超过 4 级
-       * @reason 适合做后置检查
-       */
+      // 控制语句的嵌套层级不要过深，不要超过 4 级
+      // @reason 适合做后置检查
       'max-depth': ['off', 4],
 
-      /*
-       * 文件最大行数：1000
-       * @reason 适合做后置检查
-       */
+      // 文件最大行数：1000
+      // @reason 适合做后置检查
       'max-lines': [
         'off',
         {
@@ -399,10 +389,8 @@ export default [
         },
       ],
 
-      /*
-       * 函数最大行数：80
-       * @reason 适合做后置检查
-       */
+      // 函数最大行数：80
+      // @reason 适合做后置检查
       'max-lines-per-function': [
         'off',
         {

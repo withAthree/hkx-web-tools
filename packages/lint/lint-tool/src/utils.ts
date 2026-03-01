@@ -216,7 +216,7 @@ export const getEslintConfigContent = (
   enablePrettier = false,
 ): string => {
   const prettierImport = enablePrettier ? "\nimport eslintConfigPrettier from 'eslint-config-prettier/flat';" : '';
-  const prettierSpread = enablePrettier ? ',\n  ...eslintConfigPrettier' : '';
+  const prettierSpread = enablePrettier ? ',\n  eslintConfigPrettier' : '';
   return `import { defineConfig } from 'eslint/config';
 import eslintConfig from 'hkx-eslint-config${projectType.includes('index') ? '' : '/'}${projectType.replace('index', '')}'${prettierImport}
 
