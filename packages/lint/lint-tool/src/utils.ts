@@ -194,11 +194,9 @@ export function isReactProject(projectType: string): boolean {
  * @returns 配置文件扩展名（不包含点号）
  */
 export function getConfigFileExtension(
-  projectType: string,
   packageType?: 'module' | 'commonjs',
 ): string {
-  const baseExtension = isTypeScriptProject(projectType) ? 'ts' : 'js';
-  return packageType === 'module' ? `m${baseExtension}` : baseExtension;
+  return packageType === 'module' ? 'mjs' : 'js';
 }
 
 // ==================== ESLint 配置生成 ====================

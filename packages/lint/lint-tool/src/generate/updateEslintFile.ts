@@ -27,7 +27,7 @@ export default async (result: PromptResult): Promise<void> => {
   const pkg = await readPackageJson(cwd);
 
   // 确定配置文件扩展名
-  const fileExtension = getConfigFileExtension(projectType, pkg.type);
+  const fileExtension = getConfigFileExtension(pkg.type);
   const configFileName = `eslint.config.${fileExtension}`;
   const pathFlatConfig = path.join(cwd, configFileName);
 
