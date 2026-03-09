@@ -3,7 +3,6 @@ import tseslint from 'typescript-eslint';
 import jsIndex from '../index';
 import tsRules from '../rules/typescript';
 import vueRules from '../rules/vue';
-import jsxA11y from '../rules/jsx-a11y';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 
 import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
@@ -11,7 +10,7 @@ import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
 export default [
   {
     name: 'eslint-config/typescript/vue',
-    extends: [jsIndex, jsxA11y, tsRules, vueRules],
+    extends: [jsIndex, tsRules, vueRules],
     files: ['**/*.{ts,tsx,js,jsx,vue}'],
     settings: {
       'import-x/resolver-next': [

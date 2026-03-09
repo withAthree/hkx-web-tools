@@ -9,7 +9,7 @@ export default defineConfig({
     'typescript/vue': './typescript/vue.ts',
     'typescript/node': './typescript/node.ts',
   },
-  dts: true,
+  dts: false,
   shims: true,
   format: ['esm'],
 });
