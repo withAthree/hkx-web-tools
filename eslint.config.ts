@@ -1,9 +1,10 @@
 import { defineConfig } from 'eslint/config';
 
-import tseslintConfig from 'hkx-eslint-config/typescript/node';
+import { configs } from 'hkx-eslint-config';
+
 
 export default defineConfig([
-  ...tseslintConfig,
+  ...configs.nodeTs as any[],
   {
     ignores: ['**/node_modules/*', '**/dist/*', '**/__tests__/**/*', '**/.husky/**/*', '**/.idea/**/*', '**/.vscode/**/*'],
   },

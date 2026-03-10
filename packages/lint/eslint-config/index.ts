@@ -1,32 +1,26 @@
-import bestPractices from './rules/base/best-practices';
-import possibleErrors from './rules/base/possible-errors';
-import style from './rules/base/style';
-import variables from './rules/base/variables';
-import es6 from './rules/base/es6';
-import strict from './rules/base/strict';
-import importConfig from './rules/import';
+import type { ESLint, Linter } from 'eslint';
 
-import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
+import jsConfig from './config/standard-js';
+import nodeConfig from './config/node-js';
+import reactConfig from './config/react-js';
+import vueConfig from './config/vue-js';
 
-export default [
-  ...bestPractices,
-  ...possibleErrors,
-  ...style,
-  ...variables,
-  ...es6,
-  ...strict,
-  ...importConfig,
-  {
-    name: 'eslint-config/index',
-    files: ['*.{js,jsx}', '**/*.{jsx}'],
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: {
-          globalReturn: false,
-          impliedStrict: true,
-          jsx: true,
-        },
-      },
-    },
-  },
-] as ConfigWithExtendsArray;
+import tsConfig from './config/standard-ts';
+import vueTsConfig from './config/vue-ts';
+import reactTsConfig from './config/react-ts';
+import nodeTsConfig from './config/node-ts';
+
+import pluginExport from './plugin';
+
+export const configs: Record<string, Linter.Config[] | unknown> = {
+  js: jsConfig,
+  ts: tsConfig,
+  node: nodeConfig,
+  react: reactConfig,
+  vue: vueConfig,
+  vueTs: vueTsConfig,
+  reactTs: reactTsConfig,
+  nodeTs: nodeTsConfig,
+};
+
+export const plugin: ESLint.Plugin = pluginExport;

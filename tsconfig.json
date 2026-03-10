@@ -1,17 +1,24 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "baseUrl": ".",
-        "module": "ESNext",
-        "moduleResolution": "bundler",
-        "strict": true,
-        "declaration": false,
-        "noEmit": true,
-        "esModuleInterop": true,
-        "paths": {
-            "@/*": ["src/*"]
-        }
-    },
-    "include": ["**/*.ts"],
-    "exclude": ["**/fixtures/**/*.*", "**/_fixtures/**/*.*"]
+  "compilerOptions": {
+    "target": "ESNext",
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "declaration": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "**/fixtures/**/*.*",
+    "**/_fixtures/**/*.*",
+  ]
 }

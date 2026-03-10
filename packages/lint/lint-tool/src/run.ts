@@ -115,12 +115,10 @@ export const run = async (options: CliRunOptions = {}): Promise<void> => {
           message: 'Do you need prettier?',
           initialValue: false,
         }),
-        /*
-         * enableMarkdownlint: () => p.confirm({
-         *   message: '是否需要 markdownlint 配置？',
-         *   initialValue: false,
-         * }),
-         */
+        // enableMarkdownlint: () => p.confirm({
+        //   message: '是否需要 markdownlint 配置？',
+        //   initialValue: false,
+        // }),
 
         enableCommitlint: () => p.confirm({
           message: 'Do you need commitlint?',

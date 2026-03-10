@@ -1,15 +1,20 @@
-import { defineConfig } from 'tsdown';
+import { type UserConfig, defineConfig } from 'tsdown';
 
-export default defineConfig({
-  entry: {
-    index: './index.ts',
-    node: './node.ts',
-    vue: './vue.ts',
-    'typescript/index': './typescript/index.ts',
-    'typescript/vue': './typescript/vue.ts',
-    'typescript/node': './typescript/node.ts',
-  },
-  dts: false,
-  shims: true,
+const config = {
+  entry: ['./index.ts'],
+  outDir: 'dist',
   format: ['esm'],
-});
+  fixedExtension: false,
+  platform: 'node',
+  dts: true,
+  hash: false,
+  deps: {
+    neverBundle: ['eslint', 'typescript'],
+  },
+  treeshake: true,
+  minify: false,
+  sourcemap: false,
+  clean: true,
+};
+
+export default defineConfig(config as UserConfig);

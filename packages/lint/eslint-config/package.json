@@ -12,21 +12,20 @@
   "author": "withAthree <huangkaixiang8462@163.com>",
   "license": "ISC",
   "exports": {
-    ".": "./dist/index.js",
-    "./vue": "./dist/vue.js",
-    "./node": "./dist/node.js",
-    "./typescript": "./dist/typescript/index.js",
-    "./typescript/vue": "./dist/typescript/vue.js",
-    "./typescript/node": "./dist/typescript/node.js",
-    "./formatter": "./dist/formatter.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "main": "./dist/**/*",
-  "types": "./dist/**/*.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "directories": {
     "test": "__tests__"
   },
   "files": [
-    "dist"
+    "dist",
+    "./package.json"
   ],
   "repository": {
     "type": "git",
@@ -41,10 +40,8 @@
   },
   "homepage": "https://github.com/withAthree/hkx-web-tools#readme",
   "dependencies": {
-    "@eslint/config-helpers": "^0.3.1",
     "@stylistic/eslint-plugin": "^5.5.0",
     "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-format": "^1.0.2",
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-vue": "^10.4.0",
