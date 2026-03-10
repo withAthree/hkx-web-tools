@@ -9,9 +9,8 @@
     "noEmit": true,
     "esModuleInterop": true,
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"],
+      "hkx-eslint-config": ["./packages/lint/eslint-config"]
     }
   },
   "include": [
