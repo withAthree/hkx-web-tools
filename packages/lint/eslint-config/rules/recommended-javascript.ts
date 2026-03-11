@@ -8,7 +8,7 @@ import * as importConfig from './base/import';
 
 export const name = 'eslint-config/recommended-javascript';
 
-export const plugins = {
+export const plugins: any = {
   ...bestPracticesConfig.plugins,
   ...possibleErrorsConfig.plugins,
   ...styleConfig.plugins,
@@ -30,5 +30,5 @@ export const rules = {
   ...strictConfig.rules,
 };
 
-const config = { name, plugins, settings, rules };
+const config: any = { name, plugins, settings, rules };
 export default config;
