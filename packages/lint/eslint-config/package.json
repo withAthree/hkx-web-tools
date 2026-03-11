@@ -86,6 +86,7 @@
   },
   "homepage": "https://github.com/withAthree/hkx-web-tools#readme",
   "dependencies": {
+    "@eslint-react/eslint-plugin": "^2.13.0",
     "@stylistic/eslint-plugin": "^5.5.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import-x": "^4.16.1",
