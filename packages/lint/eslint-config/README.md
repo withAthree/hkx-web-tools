@@ -8,7 +8,8 @@ HKX 代码规范，基于 ESLint 9 Flat Config。
 pnpm add -D eslint hkx-eslint-config
 ```
 
-要求 **ESLint ^9.32.0**（peerDependency）。
+- **ESLint**：^9.32.0（peerDependency）
+- **TypeScript 配置**（`standard-ts` / `node-ts` / `react-ts` / `vue-ts`）：需在项目中安装 `typescript`，且 type-aware 规则依赖 `tsconfig.json`
 
 ## 两种用法
 
