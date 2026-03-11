@@ -26,7 +26,7 @@ const ESLINT_CONFIG_FILES = [
  * 默认配置选项
  */
 const DEFAULT_CONFIG: PromptResult = {
-  projectType: 'index',
+  projectType: 'standard',
   enableStylelint: false,
   enablePrettier: false,
   enableMarkdownlint: false,

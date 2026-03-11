@@ -21,7 +21,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "bin",
-    "dist"
+    "dist",
+    "./package.json"
   ],
   "directories": {
     "test": "__tests__"

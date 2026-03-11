@@ -10,29 +10,29 @@ vi.mock('child_process', () => ({
 describe('utils', () => {
     describe('getEslintConfigContent', () => {
         it('应该生成基础的 JavaScript 配置', () => {
-            const result = getEslintConfigContent('index', null);
+            const result = getEslintConfigContent('standard', null);
 
             expect(result).toContain("import { defineConfig } from 'eslint/config'");
-            expect(result).toContain("import eslintConfig from 'hkx-eslint-config'");
+            expect(result).toContain("import eslintConfig from 'hkx-eslint-config/standard'");
             expect(result).toContain('export default defineConfig([');
             expect(result).toContain('...eslintConfig');
         });
 
         it('应该生成带 TypeScript 的配置', () => {
-            const result = getEslintConfigContent('typescript', null);
+            const result = getEslintConfigContent('standard-ts', null);
 
-            expect(result).toContain("import eslintConfig from 'hkx-eslint-config/typescript'");
+            expect(result).toContain("import eslintConfig from 'hkx-eslint-config/standard-ts'");
         });
 
         it('应该生成带 Vue + TypeScript 的配置', () => {
-            const result = getEslintConfigContent('typescript/vue', null);
+            const result = getEslintConfigContent('vue-ts', null);
 
-            expect(result).toContain("import eslintConfig from 'hkx-eslint-config/typescript/vue'");
+            expect(result).toContain("import eslintConfig from 'hkx-eslint-config/vue-ts'");
         });
 
         it('应该包含 ignores 配置', () => {
             const ignores = 'ignores: ["dist", "node_modules"]';
-            const result = getEslintConfigContent('index', ignores);
+            const result = getEslintConfigContent('standard', ignores);
 
             expect(result).toContain(ignores);
             expect(result).toMatch(/\[\s*\.\.\.eslintConfig,\s*\{\s*ignores:/);

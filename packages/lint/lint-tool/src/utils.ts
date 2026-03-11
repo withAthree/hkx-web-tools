@@ -5,6 +5,8 @@ import path from 'node:path';
 import * as p from '@clack/prompts';
 import c from 'ansis';
 
+import type { ProjectType } from './types';
+
 // ==================== 文件操作工具函数 ====================
 
 /**
@@ -160,29 +162,23 @@ export async function fileExists(filePath: string): Promise<boolean> {
 
 /**
  * 判断是否为 Vue 项目
- * @param projectType 项目类型
- * @returns 如果是 Vue 项目返回 true，否则返回 false
  */
 export function isVueProject(projectType: string): boolean {
-  return projectType.includes('vue');
+  return projectType === 'vue' || projectType === 'vue-ts';
 }
 
 /**
  * 判断是否为 TypeScript 项目
- * @param projectType 项目类型
- * @returns 如果是 TypeScript 项目返回 true，否则返回 false
  */
 export function isTypeScriptProject(projectType: string): boolean {
-  return projectType.includes('typescript');
+  return projectType === 'standard-ts' || projectType === 'vue-ts' || projectType === 'node-ts' || projectType === 'react-ts';
 }
 
 /**
  * 判断是否为 React 项目
- * @param projectType 项目类型
- * @returns 如果是 React 项目返回 true，否则返回 false
  */
 export function isReactProject(projectType: string): boolean {
-  return projectType.includes('react');
+  return projectType === 'react' || projectType === 'react-ts';
 }
 
 // ==================== 配置文件工具函数 ====================
@@ -209,14 +205,15 @@ export function getConfigFileExtension(
  * @returns ESLint 配置文件内容
  */
 export const getEslintConfigContent = (
-  projectType: string,
+  projectType: ProjectType,
   ignores: string | null,
   enablePrettier = false,
 ): string => {
+  const configImportPath = `hkx-eslint-config/${projectType}`;
   const prettierImport = enablePrettier ? "\nimport eslintConfigPrettier from 'eslint-config-prettier/flat';" : '';
   const prettierSpread = enablePrettier ? ',\n  eslintConfigPrettier' : '';
   return `import { defineConfig } from 'eslint/config';
-import eslintConfig from 'hkx-eslint-config${projectType.includes('index') ? '' : '/'}${projectType.replace('index', '')}'${prettierImport}
+import eslintConfig from '${configImportPath}'${prettierImport}
 
 export default defineConfig([
   ...eslintConfig${prettierSpread}${ignores ? `,\n  { ${ignores} }` : ''}

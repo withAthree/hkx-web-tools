@@ -28,17 +28,6 @@ function loadPackageJson(): PackageJson {
 const pkg = loadPackageJson();
 
 /**
- * Unicode 字符常量
- */
-export enum UNICODE {
-  // ✔
-  success = '\u2714',
-
-  // ✖
-  failure = '\u2716',
-}
-
-/**
  * 开发中标识文本
  */
 export const UN_DEV = '(Under development)';
@@ -55,6 +44,7 @@ export const PKG_VERSION: string = pkg.version;
 
 /**
  * 项目类型选项
+ * value 为 hkx-eslint-config 导出子路径，与 packages/lint/eslint-config 的 package.json exports 一致
  */
 export interface ProjectTypeOption {
   label: string;
@@ -66,41 +56,15 @@ export interface ProjectTypeOption {
  * 支持的项目类型列表
  */
 export const PROJECT_TYPE: readonly ProjectTypeOption[] = [
-  {
-    label: 'Javascript',
-    value: 'index',
-  },
-  {
-    label: 'Typescript',
-    value: 'typescript',
-  },
-  {
-    label: 'Vue',
-    value: 'vue',
-  },
-  {
-    label: 'Vue + Typescript',
-    value: 'typescript/vue',
-  },
-  {
-    label: 'Node',
-    value: 'node',
-  },
-  {
-    label: 'Node + Typescript',
-    value: 'typescript/node',
-  },
-  {
-    label: `React${UN_DEV}`,
-    value: 'react',
-    disabled: true,
-  },
-  {
-    label: `React + Typescript${UN_DEV}`,
-    value: 'typescript/react',
-    disabled: true,
-  },
-] as const;
+  { label: 'Javascript', value: 'standard' },
+  { label: 'Typescript', value: 'standard-ts' },
+  { label: 'Vue', value: 'vue' },
+  { label: 'Vue + Typescript', value: 'vue-ts' },
+  { label: 'Node', value: 'node' },
+  { label: 'Node + Typescript', value: 'node-ts' },
+  { label: 'React', value: 'react' },
+  { label: 'React + Typescript', value: 'react-ts' },
+];
 
 /**
  * 依赖包版本映射表

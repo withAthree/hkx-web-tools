@@ -31,7 +31,7 @@ const config = {
     neverBundle: [...dependencies, 'eslint', 'typescript'],
   },
   treeshake: true,
-  minify: false,
+  minify: true,
   sourcemap: false,
   clean: true,
 };
