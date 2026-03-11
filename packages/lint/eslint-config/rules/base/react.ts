@@ -1,10 +1,9 @@
 import stylistic from '@stylistic/eslint-plugin';
 import eslintReact from '@eslint-react/eslint-plugin';
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/react';
 
-const domConfig = eslintReact.configs.dom as { plugins: Record<string, unknown> };
+const domConfig = eslintReact.configs.dom;
 export const plugins = {
   '@stylistic': stylistic,
   '@eslint-react': eslintReact,
@@ -108,5 +107,5 @@ export const rules = {
   '@eslint-react/dom/no-find-dom-node': 2,
   // 禁止使用 ReactDOM.render 的返回值
   '@eslint-react/dom/no-render-return-value': 2,
-} as const satisfies Record<string, RuleConfig>;
+};
 

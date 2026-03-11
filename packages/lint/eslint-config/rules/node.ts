@@ -1,6 +1,4 @@
-import * as nodeConfig from './rules/node';
-
-import { RuleConfig } from '../type';
+import * as nodeConfig from './base/node';
 
 export const name = 'eslint-config/node';
 
@@ -10,4 +8,7 @@ export const plugins = {
 
 export const rules = {
   ...nodeConfig.rules,
-} as const satisfies Record<string, RuleConfig>;
+};
+
+const config = { name, plugins, rules };
+export default config;

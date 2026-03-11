@@ -1,9 +1,10 @@
 import globals from 'globals';
-import eslintPlugin from '../plugin';
+import recommendedJavascript from '../rules/recommended-javascript';
+import react from '../rules/react';
 
-export default [{
+const config: any = [{
   files: ['**/*.js', '**/*.jsx'],
-  extends: [eslintPlugin.configs.js, eslintPlugin.configs.react],
+  extends: [recommendedJavascript, react],
   languageOptions: {
     parserOptions: {
       ecmaFeatures: {
@@ -15,3 +16,5 @@ export default [{
     },
   },
 }];
+
+export default config;

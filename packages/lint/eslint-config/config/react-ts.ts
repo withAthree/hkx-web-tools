@@ -1,10 +1,11 @@
 import globals from 'globals';
-import eslintPlugin from '../plugin';
+import recommendedTypescript from '../rules/recommended-typescript';
+import react from '../rules/react';
 import tseslint from 'typescript-eslint';
 
-export default [{
+const config: any = [{
   files: ['**/*.ts', '**/*.tsx'],
-  extends: [eslintPlugin.configs.ts, eslintPlugin.configs.react],
+  extends: [recommendedTypescript, react],
   languageOptions: {
     parser: tseslint.parser,
     parserOptions: {
@@ -15,3 +16,5 @@ export default [{
     },
   },
 }];
+
+export default config;

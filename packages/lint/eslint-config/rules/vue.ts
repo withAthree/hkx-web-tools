@@ -1,6 +1,4 @@
-import * as vueConfig from './rules/vue';
-
-import { RuleConfig } from '../type';
+import * as vueConfig from './base/vue';
 
 export const name = 'eslint-config/vue';
 
@@ -8,7 +6,9 @@ export const plugins = {
   ...vueConfig.plugins,
 };
 
-
 export const rules = {
   ...vueConfig.rules,
-} as const satisfies Record<string, RuleConfig>;
+};
+
+const config = { name, plugins, rules };
+export default config;

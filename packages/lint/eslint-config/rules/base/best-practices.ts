@@ -1,5 +1,4 @@
 import stylistic from '@stylistic/eslint-plugin';
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/best-practices';
 
@@ -284,4 +283,4 @@ export const rules = {
     'any',
     { functionPrototypeMethods: false },
   ],
-} as const satisfies Record<string, RuleConfig>;
+};

@@ -1,5 +1,4 @@
 import pluginVue from 'eslint-plugin-vue';
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/vue';
 
@@ -90,4 +89,4 @@ export const rules = {
   'vue/valid-v-show': 'error',
   'vue/valid-v-slot': 'error',
   'vue/valid-v-text': 'error',
-} as const satisfies Record<string, RuleConfig>;
+};

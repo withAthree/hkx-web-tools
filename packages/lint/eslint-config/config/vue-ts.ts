@@ -1,13 +1,14 @@
 import globals from 'globals';
-import eslintPlugin from '../plugin';
+import recommendedTypescript from '../rules/recommended-typescript';
+import vue from '../rules/vue';
 import vueParser from 'vue-eslint-parser';
 import pluginVue from 'eslint-plugin-vue';
 import tseslint from 'typescript-eslint';
 
-export default [
+const config: any = [
   {
     files: ['**/*.ts', '**/*.tsx'],
-    extends: [eslintPlugin.configs.ts],
+    extends: [recommendedTypescript],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -23,7 +24,7 @@ export default [
   },
   {
     files: ['**/*.vue'],
-    extends: [eslintPlugin.configs.ts, eslintPlugin.configs.vue],
+    extends: [recommendedTypescript, vue],
     plugins: {
       get vue() {
         return pluginVue;
@@ -49,3 +50,5 @@ export default [
     },
   },
 ];
+
+export default config;

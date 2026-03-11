@@ -12,14 +12,60 @@
   "author": "withAthree <huangkaixiang8462@163.com>",
   "license": "ISC",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+    "./node": {
+      "types": "./dist/config/node-js.d.ts",
+      "import": "./dist/config/node-js.js"
+    },
+    "./node-ts": {
+      "types": "./dist/config/node-ts.d.ts",
+      "import": "./dist/config/node-ts.js"
+    },
+    "./react": {
+      "types": "./dist/config/react-js.d.ts",
+      "import": "./dist/config/react-js.js"
+    },
+    "./react-ts": {
+      "types": "./dist/config/react-ts.d.ts",
+      "import": "./dist/config/react-ts.js"
+    },
+    "./standard": {
+      "types": "./dist/config/standard-js.d.ts",
+      "import": "./dist/config/standard-js.js"
+    },
+    "./standard-ts": {
+      "types": "./dist/config/standard-ts.d.ts",
+      "import": "./dist/config/standard-ts.js"
+    },
+    "./vue": {
+      "types": "./dist/config/vue-js.d.ts",
+      "import": "./dist/config/vue-js.js"
+    },
+    "./vue-ts": {
+      "types": "./dist/config/vue-ts.d.ts",
+      "import": "./dist/config/vue-ts.js"
+    },
+    "./rules/recommended-javascript": {
+      "types": "./dist/rules/recommended-javascript.d.ts",
+      "import": "./dist/rules/recommended-javascript.js"
+    },
+    "./rules/recommended-typescript": {
+      "types": "./dist/rules/recommended-typescript.d.ts",
+      "import": "./dist/rules/recommended-typescript.js"
+    },
+    "./rules/node": {
+      "types": "./dist/rules/node.d.ts",
+      "import": "./dist/rules/node.js"
+    },
+    "./rules/react": {
+      "types": "./dist/rules/react.d.ts",
+      "import": "./dist/rules/react.js"
+    },
+    "./rules/vue": {
+      "types": "./dist/rules/vue.d.ts",
+      "import": "./dist/rules/vue.js"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "directories": {
     "test": "__tests__"
   },

@@ -1,13 +1,15 @@
 import globals from 'globals';
-import eslintPlugin from '../plugin';
+import recommendedJavascript from '../rules/recommended-javascript';
+import node from '../rules/node';
 
-
-export default [{
+const config = [{
   files: ['**/*.js'],
-  extends: [eslintPlugin.configs.js, eslintPlugin.configs.node],
+  extends: [recommendedJavascript, node],
   languageOptions: {
     globals: {
       ...globals.node,
     },
   },
 }];
+
+export default config;

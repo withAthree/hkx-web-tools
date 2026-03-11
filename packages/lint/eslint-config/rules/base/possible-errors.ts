@@ -1,5 +1,4 @@
 import stylistic from '@stylistic/eslint-plugin';
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/possible-errors';
 
@@ -125,4 +124,4 @@ export const rules = {
 
   // 禁止不必要的分号 fix
   '@stylistic/no-extra-semi': 'error',
-} as const satisfies Record<string, RuleConfig>;
+};

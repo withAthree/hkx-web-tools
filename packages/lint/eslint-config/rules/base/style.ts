@@ -1,5 +1,4 @@
 import stylistic from '@stylistic/eslint-plugin';
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/style';
 
@@ -489,4 +488,4 @@ export const rules = {
 
   // 要求或禁止 Unicode 字节顺序标记 (BOM) fix
   'unicode-bom': ['off', 'never'],
-} as const satisfies Record<string, RuleConfig>;
+};

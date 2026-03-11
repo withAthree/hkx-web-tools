@@ -1,6 +1,8 @@
-import eslintPlugin from '../plugin';
+import recommendedJavascript from '../rules/recommended-javascript';
 
-export default [{
+const config = [{
   files: ['**/*.js'],
-  extends: [eslintPlugin.configs.js],
+  extends: [recommendedJavascript],
 }];
+
+export default config;

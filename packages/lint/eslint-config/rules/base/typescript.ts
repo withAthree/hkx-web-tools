@@ -1,5 +1,4 @@
 import tseslint from 'typescript-eslint';
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/typescript';
 
@@ -537,5 +536,5 @@ export const rules = {
        * 【推荐】定义函数时，优先使用参数的联合类型而不是函数的类型重载
        */
   '@typescript-eslint/unified-signatures': 'warn',
-} as const satisfies Record<string, RuleConfig>;
+};
 

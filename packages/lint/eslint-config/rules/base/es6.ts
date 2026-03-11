@@ -1,5 +1,4 @@
 import stylistic from '@stylistic/eslint-plugin';
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/es6';
 
@@ -156,4 +155,4 @@ export const rules = {
 
   // 该规则强制在 yield* 表达式中的 * 周围添加空格 fix
   '@stylistic/yield-star-spacing': ['error', 'after'],
-} as const satisfies Record<string, RuleConfig>;
+};

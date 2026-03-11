@@ -1,13 +1,13 @@
 import globals from 'globals';
-import eslintPlugin from '../plugin';
+import recommendedJavascript from '../rules/recommended-javascript';
+import vue from '../rules/vue';
 import vueParser from 'vue-eslint-parser';
 import pluginVue from 'eslint-plugin-vue';
 
-
-export default [
+const config = [
   {
     files: ['**/*.js', '**/*.jsx'],
-    extends: [eslintPlugin.configs.js],
+    extends: [recommendedJavascript],
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {
@@ -21,7 +21,7 @@ export default [
   },
   {
     files: ['**/*.vue'],
-    extends: [eslintPlugin.configs.js, eslintPlugin.configs.vue],
+    extends: [recommendedJavascript, vue],
     plugins: {
       get vue() {
         return pluginVue;
@@ -42,3 +42,5 @@ export default [
     processor: 'vue/vue',
   },
 ];
+
+export default config;

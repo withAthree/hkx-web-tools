@@ -1,4 +1,3 @@
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/variables';
 
@@ -41,4 +40,4 @@ export const rules = {
     'error',
     { functions: false, classes: false, variables: false },
   ],
-} as const satisfies Record<string, RuleConfig>;
+};

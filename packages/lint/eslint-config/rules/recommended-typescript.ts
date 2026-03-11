@@ -1,16 +1,15 @@
-import * as bestPracticesConfig from './rules/best-practices';
-import * as possibleErrorsConfig from './rules/possible-errors';
-import * as styleConfig from './rules/style';
-import * as variablesConfig from './rules/variables';
-import * as es6Config from './rules/es6';
-import * as strictConfig from './rules/strict';
-import * as importConfig from './rules/import';
-import * as typescriptConfig from './rules/typescript';
-import { RuleConfig } from '../type';
+import * as bestPracticesConfig from './base/best-practices';
+import * as possibleErrorsConfig from './base/possible-errors';
+import * as styleConfig from './base/style';
+import * as variablesConfig from './base/variables';
+import * as es6Config from './base/es6';
+import * as strictConfig from './base/strict';
+import * as importConfig from './base/import';
+import * as typescriptConfig from './base/typescript';
 
 export const name = 'eslint-config/recommended-typescript';
 
-export const plugins = {
+export const plugins: any = {
   ...bestPracticesConfig.plugins,
   ...possibleErrorsConfig.plugins,
   ...styleConfig.plugins,
@@ -32,4 +31,7 @@ export const rules = {
   ...typescriptConfig.rules,
   ...variablesConfig.rules,
   ...strictConfig.rules,
-} as const satisfies Record<string, RuleConfig>;
+};
+
+const config: any = { name, plugins, settings, rules };
+export default config;

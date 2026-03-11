@@ -10,53 +10,63 @@ pnpm add -D eslint hkx-eslint-config
 
 要求 **ESLint ^9.32.0**（peerDependency）。
 
-## 用法
+## 两种用法
 
-在项目根目录新建 `eslint.config.js`（或 `eslint.config.mjs` / `eslint.config.ts`），按项目类型选用对应 config 并展开：
+### 1. 使用 config（开箱即用）
+
+直接使用预设配置，已包含解析器、extends、语言选项等：
 
 ```js
 import { defineConfig } from 'eslint/config';
-import hkx from 'hkx-eslint-config';
+import nodeTs from 'hkx-eslint-config/node-ts';
 
 export default defineConfig([
-  ...hkx.configs.ts,  // 按需换成 js / node / react / vue / vueTs / reactTs / nodeTs
-  {
-    ignores: ['**/node_modules/**', '**/dist/**'],
-  },
+  ...nodeTs,
+  { ignores: ['**/node_modules/**', '**/dist/**'] },
 ]);
 ```
 
-### 可选配置
+| 子路径 | 说明 |
+|--------|------|
+| `hkx-eslint-config/standard` | 纯 JavaScript |
+| `hkx-eslint-config/standard-ts` | TypeScript |
+| `hkx-eslint-config/node` | Node.js (JS) |
+| `hkx-eslint-config/node-ts` | Node.js (TS) |
+| `hkx-eslint-config/react` | React (JS) |
+| `hkx-eslint-config/react-ts` | React (TS) |
+| `hkx-eslint-config/vue` | Vue (JS) |
+| `hkx-eslint-config/vue-ts` | Vue (TS) |
 
-| 名称     | 说明           |
-|----------|----------------|
-| `js`     | 纯 JavaScript  |
-| `ts`     | TypeScript     |
-| `node`   | Node.js (JS)   |
-| `nodeTs` | Node.js (TS)   |
-| `react`  | React (JS)     |
-| `reactTs`| React (TS)     |
-| `vue`    | Vue (JS)       |
-| `vueTs`  | Vue (TS)       |
+### 2. 仅使用规则，自配解析器等
 
-多种场景可组合多段 config（如先 `...hkx.configs.ts` 再 `...hkx.configs.vueTs`），或按 `files` 在各自 config 里区分。
-
-## 以插件形式使用
-
-可挂载自带的 plugin，通过 `extends` 使用内置规则（plugin 提供 `js` / `ts` / `node` / `react` / `vue`）：
+只引入规则集（`Linter.Config`），自行配置 parser、languageOptions、plugins 等：
 
 ```js
 import { defineConfig } from 'eslint/config';
-import hkx from 'hkx-eslint-config';
+import recommendedTypescript from 'hkx-eslint-config/rules/recommended-typescript';
+import node from 'hkx-eslint-config/rules/node';
+import tseslint from 'typescript-eslint';
+import globals from 'globals';
 
 export default defineConfig([
   {
-    plugins: {
-      hkx: hkx.plugin,
+    files: ['**/*.ts'],
+    extends: [recommendedTypescript, node],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: { projectService: true },
+      globals: { ...globals.node },
     },
-    extends: ['hkx/ts'],
   },
 ]);
 ```
 
-推荐直接展开 `hkx.configs.xxx`，按需组合、可配合 `files` 与 `ignores`。
+| 子路径 | 说明 |
+|--------|------|
+| `hkx-eslint-config/rules/recommended-javascript` | JS 基础规则集 |
+| `hkx-eslint-config/rules/recommended-typescript` | TS 基础规则集 |
+| `hkx-eslint-config/rules/node` | Node 规则集 |
+| `hkx-eslint-config/rules/react` | React 规则集 |
+| `hkx-eslint-config/rules/vue` | Vue 规则集 |
+
+可任意组合 rules，再自行设置 parser、globals、plugins 等。

@@ -1,6 +1,5 @@
 import { importX } from 'eslint-plugin-import-x';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/import';
 
@@ -187,4 +186,4 @@ export const rules = {
 
   // 禁止从父目录导入模块
   'import-x/no-relative-parent-imports': 'off',
-} as const satisfies Record<string, RuleConfig>;
+};

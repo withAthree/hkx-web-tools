@@ -1,5 +1,4 @@
 import node from 'eslint-plugin-n';
-import { RuleConfig } from '../../type';
 
 export const name = 'rules/node';
 
@@ -229,4 +228,4 @@ export const rules = {
        * @see https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/exports-style.md
        */
   'node/exports-style': 'off',
-} as const satisfies Record<string, RuleConfig>;
+};
