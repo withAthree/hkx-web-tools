@@ -4,7 +4,7 @@ import vue from '../rules/vue';
 import vueParser from 'vue-eslint-parser';
 import pluginVue from 'eslint-plugin-vue';
 
-const config = [
+const config: any = [
   {
     files: ['**/*.js', '**/*.jsx'],
     extends: [recommendedJavascript],

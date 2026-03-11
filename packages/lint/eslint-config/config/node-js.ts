@@ -2,7 +2,7 @@ import globals from 'globals';
 import recommendedJavascript from '../rules/recommended-javascript';
 import node from '../rules/node';
 
-const config = [{
+const config: any = [{
   files: ['**/*.js'],
   extends: [recommendedJavascript, node],
   languageOptions: {

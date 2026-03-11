@@ -1,6 +1,6 @@
 import recommendedJavascript from '../rules/recommended-javascript';
 
-const config = [{
+const config: any = [{
   files: ['**/*.js'],
   extends: [recommendedJavascript],
 }];
