@@ -44,25 +44,9 @@
       "types": "./dist/config/vue-ts.d.ts",
       "import": "./dist/config/vue-ts.js"
     },
-    "./rules/recommended-javascript": {
-      "types": "./dist/rules/recommended-javascript.d.ts",
-      "import": "./dist/rules/recommended-javascript.js"
-    },
-    "./rules/recommended-typescript": {
-      "types": "./dist/rules/recommended-typescript.d.ts",
-      "import": "./dist/rules/recommended-typescript.js"
-    },
-    "./rules/node": {
-      "types": "./dist/rules/node.d.ts",
-      "import": "./dist/rules/node.js"
-    },
-    "./rules/react": {
-      "types": "./dist/rules/react.d.ts",
-      "import": "./dist/rules/react.js"
-    },
-    "./rules/vue": {
-      "types": "./dist/rules/vue.d.ts",
-      "import": "./dist/rules/vue.js"
+    "./rules": {
+      "types": "./dist/rules/index.d.ts",
+      "import": "./dist/rules/index.js"
     },
     "./package.json": "./package.json"
   },

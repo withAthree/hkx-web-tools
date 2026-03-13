@@ -40,19 +40,18 @@ export default defineConfig([
 
 ### 2. 仅使用规则，自配解析器等
 
-只引入规则集（`Linter.Config`），自行配置 parser、languageOptions、plugins 等：
+从 `hkx-eslint-config/rules` 按需引入规则集，自行配置 parser、languageOptions、plugins 等：
 
 ```js
 import { defineConfig } from 'eslint/config';
-import recommendedTypescript from 'hkx-eslint-config/rules/recommended-typescript';
-import node from 'hkx-eslint-config/rules/node';
+import { recommendedTs, node } from 'hkx-eslint-config/rules';
 import tseslint from 'typescript-eslint';
 import globals from 'globals';
 
 export default defineConfig([
   {
     files: ['**/*.ts'],
-    extends: [recommendedTypescript, node],
+    extends: [recommendedTs, node],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: { projectService: true },
@@ -62,12 +61,12 @@ export default defineConfig([
 ]);
 ```
 
-| 子路径 | 说明 |
+| 导出名 | 说明 |
 |--------|------|
-| `hkx-eslint-config/rules/recommended-javascript` | JS 基础规则集 |
-| `hkx-eslint-config/rules/recommended-typescript` | TS 基础规则集 |
-| `hkx-eslint-config/rules/node` | Node 规则集 |
-| `hkx-eslint-config/rules/react` | React 规则集 |
-| `hkx-eslint-config/rules/vue` | Vue 规则集 |
+| `recommended` | JS 基础规则集 |
+| `recommendedTs` | TS 基础规则集 |
+| `node` | Node 规则集 |
+| `react` | React 规则集 |
+| `vue` | Vue 规则集 |
 
-可任意组合 rules，再自行设置 parser、globals、plugins 等。
+可任意组合规则，再自行设置 parser、globals、plugins 等。
