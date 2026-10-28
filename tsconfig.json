@@ -14,7 +14,8 @@
     }
   },
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    "docs/.vuepress/**/*.ts"
   ],
   "exclude": [
     "**/fixtures/**/*.*",
