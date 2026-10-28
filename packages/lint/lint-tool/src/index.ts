@@ -8,10 +8,10 @@ import { run } from './run';
 const header = ():void => {
   // eslint-disable-next-line no-console
   console.log('\n');
-  p.intro(`${c.green`hkx-eslint-config `}${c.dim`v${PKG_VERSION}`}`);
+  p.intro(`${c.green`hkx-lint-tool `}${c.dim`v${PKG_VERSION}`}`);
 };
 
-const cli = cac('hkx-eslint-config');
+const cli = cac('hkx-lint-tool');
 
 cli
   .command('', 'Execute initialization')
